@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface CatalogRepository extends CrudRepository<Catalog, Long> {
+public interface CatalogRepository extends 	CrudRepository<Catalog, Long> {
 	
-	Catalog findElementNameByIdPrimaryAndIdSecondary(Long idPrimary, Long idSecondary);
+	Catalog findElementByIdPrimaryAndIdSecondary(Long idPrimary, Long idSecondary);
 	
-	List<Catalog> findElementsGroupByIdPrimary(Long idPrimary);
+	List<Catalog> findElementsListByIdPrimary(Long idPrimary);
 }

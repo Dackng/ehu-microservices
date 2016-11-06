@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.unmsm.catalog.Catalog;
 import com.unmsm.catalog.CatalogRepository;
+import com.unmsm.catalog.PrimaryGroup;
 
 @Service
 public class CatalogService {
@@ -18,11 +19,11 @@ public class CatalogService {
 		this.catalogRepository = catalogRepository;
 	}
 	
-	public Catalog findElementNameByIdPrimaryAndIdSecondary(Long idPrimary, Long idSecondary){
-		return catalogRepository.findElementNameByIdPrimaryAndIdSecondary(idPrimary, idSecondary);
+	public Catalog findElementByIdPrimaryAndIdSecondary(PrimaryGroup idPrimary, Long idSecondary){
+		return catalogRepository.findElementByIdPrimaryAndIdSecondary(idPrimary.getValue(), idSecondary);
 	}
 	
-	public List<Catalog> findElementsGroupByIdPrimary(Long idPrimary){
-		return catalogRepository.findElementsGroupByIdPrimary(idPrimary);
+	public List<Catalog> findElementsListByIdPrimary(PrimaryGroup idPrimary){
+		return catalogRepository.findElementsListByIdPrimary(idPrimary.getValue());
 	}
 }

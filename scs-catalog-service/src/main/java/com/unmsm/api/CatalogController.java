@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.unmsm.catalog.Catalog;
+import com.unmsm.catalog.PrimaryGroup;
 
 @RestController
 @RequestMapping(path = "/catalog")
@@ -24,17 +25,17 @@ public class CatalogController {
 		this.catalogService = catalogService; 
 	}
 	
-	@RequestMapping(path = "/element/{idPrimary}/{idSecondary}", method = RequestMethod.GET, name = "findElementNameByIdPrimaryAndIdSecondary")
-	public ResponseEntity<Catalog> getElementNameById(
-			@PathVariable("idPrimary") Long idPrimary, @PathVariable("idSecondary") Long idSecondary){
-		return Optional.ofNullable(catalogService.findElementNameByIdPrimaryAndIdSecondary(idPrimary, idSecondary))
+	@RequestMapping(path = "/element/civil-status/{idSecondary}", method = RequestMethod.GET, name = "findCivilStatusByIdSecondary")
+	public ResponseEntity<Catalog> findCivilStatusByIdSecondary(
+			@PathVariable("idSecondary") Long idSecondary){
+		return Optional.ofNullable(catalogService.findElementByIdPrimaryAndIdSecondary(PrimaryGroup.CIVIL_STATUS, idSecondary))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
 	
-	@RequestMapping(path = "/elements/{idPrimary}", method = RequestMethod.GET, name = "findElementsGroupByIdPrimary")
-	public ResponseEntity<List<Catalog>> getElementsGroupById(@PathVariable("idPrimary") Long idPrimary){
-		return Optional.ofNullable(catalogService.findElementsGroupByIdPrimary(idPrimary))
+	@RequestMapping(path = "/list/civil-status", method = RequestMethod.GET, name = "getCivilStatusList")
+	public ResponseEntity<List<Catalog>> getCivilStatusList(){
+		return Optional.ofNullable(catalogService.findElementsListByIdPrimary(PrimaryGroup.CIVIL_STATUS))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
