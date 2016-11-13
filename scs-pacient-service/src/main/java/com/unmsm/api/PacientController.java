@@ -33,8 +33,8 @@ public class PacientController {
 	}
 	
 	@RequestMapping(path = "/find/{code}", method = RequestMethod.GET, name = "findPacientByCode")
-	public ResponseEntity<Pacient> findPacientByCode(@PathVariable("code") Long code){
-		return Optional.ofNullable(pacientService.findPacientByCode(code))
+	public ResponseEntity<Pacient> findPacientByCode(@PathVariable("code") String code){
+		return Optional.ofNullable(pacientService.findPacientByCode(Long.parseLong(code)))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
