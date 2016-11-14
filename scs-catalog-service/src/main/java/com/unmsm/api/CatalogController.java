@@ -40,4 +40,33 @@ public class CatalogController {
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
 	
+	@RequestMapping(path = "/element/medical-status/{idSecondary}", method = RequestMethod.GET, name = "findMedicaltatusByIdSecondary")
+	public ResponseEntity<Catalog> findMedicaltatusByIdSecondary(
+			@PathVariable("idSecondary") Long idSecondary){
+		return Optional.ofNullable(catalogService.findElementByIdPrimaryAndIdSecondary(PrimaryGroup.MEDICAL_STATUS, idSecondary))
+				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
+	
+	@RequestMapping(path = "/list/medical-status", method = RequestMethod.GET, name = "getMedicalStatusList")
+	public ResponseEntity<List<Catalog>> getMedicalStatusList(){
+		return Optional.ofNullable(catalogService.findElementsListByIdPrimary(PrimaryGroup.MEDICAL_STATUS))
+				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
+	
+	@RequestMapping(path = "/element/eap/{idSecondary}", method = RequestMethod.GET, name = "findEapByIdSecondary")
+	public ResponseEntity<Catalog> findEapByIdSecondary(
+			@PathVariable("idSecondary") Long idSecondary){
+		return Optional.ofNullable(catalogService.findElementByIdPrimaryAndIdSecondary(PrimaryGroup.EAP, idSecondary))
+				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
+	
+	@RequestMapping(path = "/list/eap", method = RequestMethod.GET, name = "getEapList")
+	public ResponseEntity<List<Catalog>> getEapList(){
+		return Optional.ofNullable(catalogService.findElementsListByIdPrimary(PrimaryGroup.EAP))
+				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
 }

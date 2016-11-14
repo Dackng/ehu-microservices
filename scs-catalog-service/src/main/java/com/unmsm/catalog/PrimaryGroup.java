@@ -3,8 +3,7 @@ package com.unmsm.catalog;
 public enum PrimaryGroup {
     CIVIL_STATUS(1L),
     MEDICAL_STATUS(2L),
-	EAP(3L),
-	SEX(4L);
+	EAP(3L);
 	
 	private Long value;
 	
