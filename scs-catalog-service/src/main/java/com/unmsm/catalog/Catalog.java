@@ -13,7 +13,6 @@ public class Catalog implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
-	
 	private Long idPrimary;
 	private Long idSecondary;
 	private String name;

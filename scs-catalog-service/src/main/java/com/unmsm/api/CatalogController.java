@@ -48,6 +48,14 @@ public class CatalogController {
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
 	
+	@RequestMapping(path = "/element/first-medical-status", method = RequestMethod.GET, name = "getFirstMedicalStatus")
+	public ResponseEntity<List<Catalog>> getFirstMedicalStatus(){
+		return Optional.ofNullable(catalogService.findFirstElementOfPrimaryGroup(PrimaryGroup.MEDICAL_STATUS))
+				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
+	
+	
 	@RequestMapping(path = "/list/medical-status", method = RequestMethod.GET, name = "getMedicalStatusList")
 	public ResponseEntity<List<Catalog>> getMedicalStatusList(){
 		return Optional.ofNullable(catalogService.findElementsListByIdPrimary(PrimaryGroup.MEDICAL_STATUS))
