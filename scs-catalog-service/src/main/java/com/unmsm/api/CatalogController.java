@@ -35,7 +35,7 @@ public class CatalogController {
 	
 	@RequestMapping(path = "/list/civil-status", method = RequestMethod.GET, name = "getCivilStatusList")
 	public ResponseEntity<List<Catalog>> getCivilStatusList(){
-		return Optional.ofNullable(catalogService.findElementsListByIdPrimary(PrimaryGroup.CIVIL_STATUS))
+		return Optional.ofNullable(catalogService.getElementsListByIdPrimary(PrimaryGroup.CIVIL_STATUS))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
@@ -50,7 +50,7 @@ public class CatalogController {
 	
 	@RequestMapping(path = "/element/first-medical-status", method = RequestMethod.GET, name = "getFirstMedicalStatus")
 	public ResponseEntity<List<Catalog>> getFirstMedicalStatus(){
-		return Optional.ofNullable(catalogService.findFirstElementOfPrimaryGroup(PrimaryGroup.MEDICAL_STATUS))
+		return Optional.ofNullable(catalogService.getFirstElementOfPrimaryGroup(PrimaryGroup.MEDICAL_STATUS))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
@@ -58,7 +58,7 @@ public class CatalogController {
 	
 	@RequestMapping(path = "/list/medical-status", method = RequestMethod.GET, name = "getMedicalStatusList")
 	public ResponseEntity<List<Catalog>> getMedicalStatusList(){
-		return Optional.ofNullable(catalogService.findElementsListByIdPrimary(PrimaryGroup.MEDICAL_STATUS))
+		return Optional.ofNullable(catalogService.getElementsListByIdPrimary(PrimaryGroup.MEDICAL_STATUS))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
@@ -73,7 +73,7 @@ public class CatalogController {
 	
 	@RequestMapping(path = "/list/eap", method = RequestMethod.GET, name = "getEapList")
 	public ResponseEntity<List<Catalog>> getEapList(){
-		return Optional.ofNullable(catalogService.findElementsListByIdPrimary(PrimaryGroup.EAP))
+		return Optional.ofNullable(catalogService.getElementsListByIdPrimary(PrimaryGroup.EAP))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}

@@ -1,5 +1,5 @@
 # Zuul-proxied services can be found by calling /services/subject, /services/verb, etc.
 zuul:
-  prefix: /aplicativos
+  prefix: /apps
 server:
   port: 8030  

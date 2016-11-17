@@ -2,7 +2,7 @@ server:
   port: 8013  
 ---
 spring:
-#Es muy importante que esta etiqueta "profiles" la dejes en "default" porque se empieza a rayar
+#Is very important that this tag "profiles" let it in "default" because else the project won't run
   profiles: default
   datasource:
     url: jdbc:mysql://localhost:3306/db_catalog
@@ -13,9 +13,9 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-#Hibernate creara estas tablas si es que no existen :o oh my god
+#Hibernate will create these tables if these don't exist (surprising)
       naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
-#Estrategia de nombres para los nombres y tablas
+#Strategy of names for the names and tables 
       dialect: org.hibernate.dialect.MySQL5Dialect
       show_sql: true
       use_sql_comments: true

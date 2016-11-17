@@ -25,7 +25,7 @@ public class CatalogService {
 		return catalogRepository.findElementByIdPrimaryAndIdSecondary(idPrimary.getValue(), idSecondary);
 	}
 	
-	public List<Catalog> findElementsListByIdPrimary(PrimaryGroup idPrimary){
+	public List<Catalog> getElementsListByIdPrimary(PrimaryGroup idPrimary){
 		return catalogRepository.findElementsListByIdPrimary(idPrimary.getValue());
 	}
 	
@@ -35,7 +35,7 @@ public class CatalogService {
 	 * @param idPrimary
 	 * @return
 	 */
-	public List<Catalog> findFirstElementOfPrimaryGroup(PrimaryGroup idPrimary){
+	public List<Catalog> getFirstElementOfPrimaryGroup(PrimaryGroup idPrimary){
 		return catalogRepository.findTop1ByIdPrimary(idPrimary.getValue(), 
 				sortByIdAsc(NamesField.ID_SECONDARY.getValue()));
 	}
