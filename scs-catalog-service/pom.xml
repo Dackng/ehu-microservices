@@ -55,11 +55,14 @@
 			        <groupId>org.springframework.cloud</groupId>
 			        <artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>
 		</dependency>
-<!-- 	    Para que aparezca la salud de esto :) -->
+		
+		<!-- Para que aparezca la salud de esto -->
 	    <dependency>
 	    	<groupId>org.springframework.boot</groupId>
 	    	<artifactId>spring-boot-actuator</artifactId>
 	    </dependency>
+	    <!-- /Para que aparezca la salud de esto -->
+	    
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.unmsm.pacient.Pacient;
 
 @RestController
-@RequestMapping(path = "/pacient")
+@RequestMapping(path = "/api")
 public class PacientController {
 	
 	private PacientService pacientService;

@@ -15,7 +15,7 @@ import com.unmsm.catalog.Catalog;
 import com.unmsm.catalog.PrimaryGroup;
 
 @RestController
-@RequestMapping(path = "/catalog")
+@RequestMapping(path = "/api")
 public class CatalogController {
 	
 	private CatalogService catalogService;

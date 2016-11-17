@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 @Entity
 public class Pacient implements Serializable {
@@ -18,9 +19,15 @@ public class Pacient implements Serializable {
 	private String paternalSurname;
 	private String maternalSurname;
 	private Long idCivilStatus;
+	@Transient
+	private String nameCivilStatus;
 	private String email;
 	private Long idMedicalStatus;
+	@Transient
+	private String nameMedicalStatus;
 	private Long idEap;
+	@Transient
+	private String nameEap;
 	private Date birthDate;
 	private Long telephone;
 	private Character sex;
@@ -63,6 +70,12 @@ public class Pacient implements Serializable {
 	public void setIdCivilStatus(Long idCivilStatus) {
 		this.idCivilStatus = idCivilStatus;
 	}
+	public String getNameCivilStatus() {
+		return nameCivilStatus;
+	}
+	public void setNameCivilStatus(String nameCivilStatus) {
+		this.nameCivilStatus = nameCivilStatus;
+	}
 	public String getEmail() {
 		return email;
 	}
@@ -75,11 +88,23 @@ public class Pacient implements Serializable {
 	public void setIdMedicalStatus(Long idMedicalStatus) {
 		this.idMedicalStatus = idMedicalStatus;
 	}
+	public String getNameMedicalStatus() {
+		return nameMedicalStatus;
+	}
+	public void setNameMedicalStatus(String nameMedicalStatus) {
+		this.nameMedicalStatus = nameMedicalStatus;
+	}
 	public Long getIdEap() {
 		return idEap;
 	}
 	public void setIdEap(Long idEap) {
 		this.idEap = idEap;
+	}
+	public String getNameEap() {
+		return nameEap;
+	}
+	public void setNameEap(String nameEap) {
+		this.nameEap = nameEap;
 	}
 	public Date getBirthDate() {
 		return birthDate;
@@ -102,8 +127,9 @@ public class Pacient implements Serializable {
 	@Override
 	public String toString() {
 		return "Pacient [id=" + id + ", code=" + code + ", names=" + names + ", paternalSurname=" + paternalSurname
-				+ ", maternalSurname=" + maternalSurname + ", idCivilStatus=" + idCivilStatus + ", email=" + email
-				+ ", idMedicalStatus=" + idMedicalStatus + ", idEap=" + idEap + ", birthDate=" + birthDate
+				+ ", maternalSurname=" + maternalSurname + ", idCivilStatus=" + idCivilStatus + ", nameCivilStatus="
+				+ nameCivilStatus + ", email=" + email + ", idMedicalStatus=" + idMedicalStatus + ", nameMedicalStatus="
+				+ nameMedicalStatus + ", idEap=" + idEap + ", nameEap=" + nameEap + ", birthDate=" + birthDate
 				+ ", telephone=" + telephone + ", sex=" + sex + "]";
 	}
 }
