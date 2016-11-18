@@ -77,4 +77,11 @@ public class CatalogController {
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
+	
+	@RequestMapping(path = "/list/gender", method = RequestMethod.GET, name = "getGenderList")
+	public ResponseEntity<List<Catalog>> getGenderList(){
+		return Optional.ofNullable(catalogService.getElementsListByIdPrimary(PrimaryGroup.GENDER))
+				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
 }
