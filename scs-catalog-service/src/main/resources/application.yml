@@ -1,5 +1,7 @@
 server:
   port: 8013  
+  
+
 ---
 spring:
 #Is very important that this tag "profiles" let it in "default" because else the project won't run
@@ -13,10 +15,19 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-#Hibernate will create these tables if these don't exist (surprising)
+      #Hibernate will create these tables if these don't exist (surprising)
       naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
-#Strategy of names for the names and tables 
+      #Strategy of names for the names and tables 
       dialect: org.hibernate.dialect.MySQL5Dialect
       show_sql: true
       use_sql_comments: true
 
+---
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://scs-discovery-server:8010/eureka/
