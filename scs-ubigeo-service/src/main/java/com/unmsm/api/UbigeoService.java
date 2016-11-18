@@ -29,4 +29,8 @@ public class UbigeoService {
 	public List<Ubigeo> getDistrictsListByProvinceCode(String provinceCode){
 		return ubigeoRepository.findDistrictsByProvinceCode(provinceCode);
 	}
+	
+	public Ubigeo getUbigeoByCode(String code){
+		return ubigeoRepository.findUbigeoByCode(code);
+	}
 }

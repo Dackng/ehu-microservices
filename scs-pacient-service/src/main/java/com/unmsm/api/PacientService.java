@@ -8,6 +8,7 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.unmsm.catalog.Catalog;
 import com.unmsm.pacient.Pacient;
 import com.unmsm.pacient.PacientRepository;
+import com.unmsm.ubigeo.Ubigeo;
 
 @Service
 public class PacientService {
@@ -38,6 +39,9 @@ public class PacientService {
 			catalog = restTemplate.getForObject(
 					"http://scs-catalog-service/api/element/eap/" + pacient.getIdEap(),Catalog.class);
 			pacient.setNameEap(catalog.getName());
+			Ubigeo ubigeo = restTemplate.getForObject("http://scs-ubigeo-service/api/element/ubigeo/" + 
+					pacient.getUbigeo().getUbigeoCode(), Ubigeo.class);
+			pacient.setUbigeo(ubigeo);
 		}
 		return pacient;
 	}

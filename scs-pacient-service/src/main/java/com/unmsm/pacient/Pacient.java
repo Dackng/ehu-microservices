@@ -3,11 +3,14 @@ package com.unmsm.pacient;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
+
+import com.unmsm.ubigeo.Ubigeo;
 
 @Entity
 public class Pacient implements Serializable {
@@ -19,18 +22,18 @@ public class Pacient implements Serializable {
 	private String paternalSurname;
 	private String maternalSurname;
 	private Long idCivilStatus;
-	@Transient
 	private String nameCivilStatus;
 	private String email;
 	private Long idMedicalStatus;
-	@Transient
 	private String nameMedicalStatus;
 	private Long idEap;
-	@Transient
 	private String nameEap;
 	private Date birthDate;
 	private Long telephone;
 	private Character sex;
+	private Ubigeo ubigeo;
+	
+	public Pacient(){}
 	
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -70,6 +73,7 @@ public class Pacient implements Serializable {
 	public void setIdCivilStatus(Long idCivilStatus) {
 		this.idCivilStatus = idCivilStatus;
 	}
+	@Transient
 	public String getNameCivilStatus() {
 		return nameCivilStatus;
 	}
@@ -88,6 +92,7 @@ public class Pacient implements Serializable {
 	public void setIdMedicalStatus(Long idMedicalStatus) {
 		this.idMedicalStatus = idMedicalStatus;
 	}
+	@Transient
 	public String getNameMedicalStatus() {
 		return nameMedicalStatus;
 	}
@@ -100,6 +105,7 @@ public class Pacient implements Serializable {
 	public void setIdEap(Long idEap) {
 		this.idEap = idEap;
 	}
+	@Transient
 	public String getNameEap() {
 		return nameEap;
 	}
@@ -124,12 +130,22 @@ public class Pacient implements Serializable {
 	public void setSex(Character sex) {
 		this.sex = sex;
 	}
+	
+	@Embedded
+	public Ubigeo getUbigeo() {
+		return ubigeo;
+	}
+	public void setUbigeo(Ubigeo ubigeo) {
+		this.ubigeo = ubigeo;
+	}
+
 	@Override
 	public String toString() {
 		return "Pacient [id=" + id + ", code=" + code + ", names=" + names + ", paternalSurname=" + paternalSurname
 				+ ", maternalSurname=" + maternalSurname + ", idCivilStatus=" + idCivilStatus + ", nameCivilStatus="
 				+ nameCivilStatus + ", email=" + email + ", idMedicalStatus=" + idMedicalStatus + ", nameMedicalStatus="
 				+ nameMedicalStatus + ", idEap=" + idEap + ", nameEap=" + nameEap + ", birthDate=" + birthDate
-				+ ", telephone=" + telephone + ", sex=" + sex + "]";
+				+ ", telephone=" + telephone + ", sex=" + sex + ", ubigeo=" + ubigeo + "]";
 	}
+
 }

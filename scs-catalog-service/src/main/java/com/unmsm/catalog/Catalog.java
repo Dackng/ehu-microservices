@@ -18,6 +18,8 @@ public class Catalog implements Serializable{
 	private String name;
 	private String description;
 	
+	public Catalog(){}
+	
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
 	public Long getId() {

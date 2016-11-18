@@ -46,4 +46,11 @@ public class UbigeoController {
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
+	
+	@RequestMapping(path = "/element/ubigeo/{code}", method = RequestMethod.GET, name = "getUbigeoByCode")
+	public ResponseEntity<Ubigeo> getUbigeoByCode(@PathVariable("code") String code){
+		return Optional.ofNullable(ubigeoService.getUbigeoByCode(code))
+				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
 }

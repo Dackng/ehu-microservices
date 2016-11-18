@@ -21,4 +21,6 @@ public interface UbigeoRepository extends CrudRepository<Ubigeo, Long>{
 			+ " FROM Ubigeo u WHERE u.provinceCode = :provinceCode"
 			+ " GROUP BY u.districtCode ORDER BY u.districtDescription")
 	List<Ubigeo> findDistrictsByProvinceCode(@Param("provinceCode")String provinceCode);
+	
+	Ubigeo findUbigeoByCode(String code);
 }

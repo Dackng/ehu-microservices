@@ -1,19 +1,12 @@
 package com.unmsm.ubigeo;
 
-import java.io.Serializable;
+import javax.persistence.Embeddable;
+import javax.persistence.Transient;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity
-public class Ubigeo implements Serializable{
+@Embeddable
+public class Ubigeo{
 	
-	private static final long serialVersionUID = 1L;
-	
-	private Long id;
-	private String code;
+	private String ubigeoCode;
 	private String departmentCode;
 	private String departmentDescription;
 	private String provinceCode;
@@ -23,59 +16,58 @@ public class Ubigeo implements Serializable{
 	
 	public Ubigeo(){}
 	
-	@Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-	public Long getId() {
-		return id;
+	public String getUbigeoCode() {
+		return ubigeoCode;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setUbigeoCode(String ubigeoCode) {
+		this.ubigeoCode = ubigeoCode;
 	}
-	public String getCode() {
-		return code;
-	}
-	public void setCode(String code) {
-		this.code = code;
-	}
+	@Transient
 	public String getDepartmentCode() {
 		return departmentCode;
 	}
 	public void setDepartmentCode(String departmentCode) {
 		this.departmentCode = departmentCode;
 	}
+	@Transient
 	public String getDepartmentDescription() {
 		return departmentDescription;
 	}
 	public void setDepartmentDescription(String departmentDescription) {
 		this.departmentDescription = departmentDescription;
 	}
+	@Transient
 	public String getProvinceCode() {
 		return provinceCode;
 	}
 	public void setProvinceCode(String provinceCode) {
 		this.provinceCode = provinceCode;
 	}
+	@Transient
 	public String getProvinceDescription() {
 		return provinceDescription;
 	}
 	public void setProvinceDescription(String provinceDescription) {
 		this.provinceDescription = provinceDescription;
 	}
+	@Transient
 	public String getDistrictCode() {
 		return districtCode;
 	}
 	public void setDistrictCode(String districtCode) {
 		this.districtCode = districtCode;
 	}
+	@Transient
 	public String getDistrictDescription() {
 		return districtDescription;
 	}
 	public void setDistrictDescription(String districtDescription) {
 		this.districtDescription = districtDescription;
 	}
+
 	@Override
 	public String toString() {
-		return "Ubigeo [id=" + id + ", code=" + code + ", departmentCode=" + departmentCode + ", departmentDescription="
+		return "Ubigeo [ubigeoCode=" + ubigeoCode + ", departmentCode=" + departmentCode + ", departmentDescription="
 				+ departmentDescription + ", provinceCode=" + provinceCode + ", provinceDescription="
 				+ provinceDescription + ", districtCode=" + districtCode + ", districtDescription="
 				+ districtDescription + "]";
