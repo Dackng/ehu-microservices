@@ -10,12 +10,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.unmsm.ubigeo.Ubigeo;
 
 @Entity
 public class Pacient implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	@JsonIgnore
 	private Long id;
 	private Long code;
 	private String names;
