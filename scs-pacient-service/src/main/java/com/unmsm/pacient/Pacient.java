@@ -30,7 +30,7 @@ public class Pacient implements Serializable {
 	private String nameEap;
 	private Date birthDate;
 	private Long telephone;
-	private Character sex;
+	private Character gender;
 	private Ubigeo ubigeo;
 	
 	public Pacient(){}
@@ -124,13 +124,12 @@ public class Pacient implements Serializable {
 	public void setTelephone(Long telephone) {
 		this.telephone = telephone;
 	}
-	public Character getSex() {
-		return sex;
+	public Character getGender() {
+		return gender;
 	}
-	public void setSex(Character sex) {
-		this.sex = sex;
+	public void setGender(Character gender) {
+		this.gender = gender;
 	}
-	
 	@Embedded
 	public Ubigeo getUbigeo() {
 		return ubigeo;
@@ -145,7 +144,7 @@ public class Pacient implements Serializable {
 				+ ", maternalSurname=" + maternalSurname + ", idCivilStatus=" + idCivilStatus + ", nameCivilStatus="
 				+ nameCivilStatus + ", email=" + email + ", idMedicalStatus=" + idMedicalStatus + ", nameMedicalStatus="
 				+ nameMedicalStatus + ", idEap=" + idEap + ", nameEap=" + nameEap + ", birthDate=" + birthDate
-				+ ", telephone=" + telephone + ", sex=" + sex + ", ubigeo=" + ubigeo + "]";
+				+ ", telephone=" + telephone + ", gender=" + gender + ", ubigeo=" + ubigeo + "]";
 	}
 
 }
