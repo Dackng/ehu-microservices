@@ -35,9 +35,10 @@ public class CatalogService {
 	 * @param idPrimary
 	 * @return
 	 */
-	public List<Catalog> getFirstElementOfPrimaryGroup(PrimaryGroup idPrimary){
-		return catalogRepository.findTop1ByIdPrimary(idPrimary.getValue(), 
+	public Catalog getFirstElementOfPrimaryGroup(PrimaryGroup idPrimary){
+		List<Catalog> list = catalogRepository.findTop1ByIdPrimary(idPrimary.getValue(), 
 				sortByIdAsc(NamesField.ID_SECONDARY.getValue()));
+		return list != null ? list.get(0) : null; 
 	}
 	
 	private Sort sortByIdAsc(String catalogNameField) {

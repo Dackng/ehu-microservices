@@ -49,7 +49,7 @@ public class CatalogController {
 	}
 	
 	@RequestMapping(path = "/element/first-medical-status", method = RequestMethod.GET, name = "getFirstMedicalStatus")
-	public ResponseEntity<List<Catalog>> getFirstMedicalStatus(){
+	public ResponseEntity<Catalog> getFirstMedicalStatus(){
 		return Optional.ofNullable(catalogService.getFirstElementOfPrimaryGroup(PrimaryGroup.MEDICAL_STATUS))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
