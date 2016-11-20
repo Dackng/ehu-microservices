@@ -25,6 +25,16 @@ public class Ubigeo implements Serializable{
 	
 	public Ubigeo(){}
 	
+	public Ubigeo(String departmentCode, String departmentDescription, String provinceCode, 
+			String provinceDescription, String districtCode, String districtDescription){
+		this.departmentCode = departmentCode;
+		this.departmentDescription = departmentDescription;
+		this.provinceCode = provinceCode;
+		this.provinceDescription = provinceDescription;
+		this.districtCode = districtCode;
+		this.districtDescription = districtDescription;
+	}
+	
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
 	public Long getId() {
