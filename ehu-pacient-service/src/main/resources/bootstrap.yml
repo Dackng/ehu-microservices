@@ -1,0 +1,9 @@
+---
+spring:
+  application:
+    name: ehu-pacient-service
+  cloud:
+    config:
+      uri: http://localhost:8001
+       
+       
