@@ -30,7 +30,7 @@ public class UbigeoApplicationTests {
 	
 	@Test
 	public void findUbigeoByCode(){
-		log.info(ubigeoRepository.findUbigeoByCode("10101").toString());
+		log.info(ubigeoRepository.findUbigeoByCode("010107").toString());
 	}
 	
 	@Test

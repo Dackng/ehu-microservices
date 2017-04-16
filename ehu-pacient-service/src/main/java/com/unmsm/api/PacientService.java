@@ -31,14 +31,14 @@ public class PacientService {
 		Pacient pacient = pacientRepository.findPacientByCode(code);
 		if(pacient != null){
 			Catalog catalog = restTemplate.getForObject(
-					"http://ehu-catalog-service/api/element/medical-status/" + pacient.getIdMedicalStatus(),Catalog.class);
-			pacient.setNameMedicalStatus(catalog.getName());
+					"http://ehu-catalog-service/api/element/medical-status/" + pacient.getMedicalStatusId(),Catalog.class);
+			pacient.setMedicalStatusName(catalog.getName());
 			catalog = restTemplate.getForObject(
-					"http://ehu-catalog-service/api/element/civil-status/" + pacient.getIdCivilStatus(),Catalog.class);
-			pacient.setNameCivilStatus(catalog.getName());
+					"http://ehu-catalog-service/api/element/civil-status/" + pacient.getCivilStatusId(),Catalog.class);
+			pacient.setCivilStatusName(catalog.getName());
 			catalog = restTemplate.getForObject(
-					"http://ehu-catalog-service/api/element/eap/" + pacient.getIdEap(),Catalog.class);
-			pacient.setNameEap(catalog.getName());
+					"http://ehu-catalog-service/api/element/eap/" + pacient.getEapId(),Catalog.class);
+			pacient.setEapName(catalog.getName());
 			Ubigeo ubigeo = restTemplate.getForObject("http://ehu-ubigeo-service/api/element/ubigeo/" + 
 					pacient.getUbigeo().getUbigeoCode(), Ubigeo.class);
 			pacient.setUbigeo(ubigeo);

@@ -1,10 +1,14 @@
 package com.unmsm.ubigeo;
 
+import java.io.Serializable;
+
 import javax.persistence.Embeddable;
 import javax.persistence.Transient;
 
 @Embeddable
-public class Ubigeo{
+public class Ubigeo implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 	
 	private String ubigeoCode;
 	private String departmentCode;

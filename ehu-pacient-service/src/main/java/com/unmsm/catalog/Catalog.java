@@ -7,14 +7,14 @@ package com.unmsm.catalog;
  */
 public class Catalog {
 
-	private Long idSecondary;
+	private Long secondaryId;
 	private String name;
 
-	public Long getIdSecondary() {
-		return idSecondary;
+	public Long getSecondaryId() {
+		return secondaryId;
 	}
-	public void setIdSecondary(Long idSecondary) {
-		this.idSecondary = idSecondary;
+	public void setSecondaryId(Long secondaryId) {
+		this.secondaryId = secondaryId;
 	}
 	public String getName() {
 		return name;

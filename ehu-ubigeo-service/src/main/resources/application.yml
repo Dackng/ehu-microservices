@@ -5,21 +5,14 @@ spring:
 #Is very important that this tag "profiles" let it in "default" because else the project won't run
   profiles: default
   datasource:
-    url: jdbc:mysql://localhost:3306/db_ubigeo
-    username: root
-    password: root
-    test-while-idle: true
-    validation-query: select 1
+    url: jdbc:postgresql://localhost:5432/ubigeodb
+    username: postgres
+    password: postgres
   jpa:
     hibernate:
-      ddl-auto: update
-#Hibernate will create these tables if these don't exist (surprising)
-      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
-#Strategy of names for the names and tables 
-      dialect: org.hibernate.dialect.MySQL5Dialect
+      ddl-auto: none 
+      dialect: org.hibernate.dialect.PostgreSQLDialect
       show_sql: true
-      use_sql_comments: true
-
 
 ---
 eureka:
@@ -29,7 +22,7 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://192.168.1.37:8010/eureka/
+      defaultZone: http://192.168.1.33:8010/eureka/
       
 ---
 spring:
@@ -37,17 +30,12 @@ spring:
     name: ehu-ubigeo-service
   profiles: test
   datasource:
-    url: jdbc:mysql://localhost:3306/db_ubigeo
-    username: root
-    password: root
-    test-while-idle: true
-    validation-query: select 1
+    url: jdbc:postgresql://localhost:5432/ubigeodb
+    username: postgres
+    password: postgres
   jpa:
     hibernate:
-      ddl-auto: update
-      #Hibernate will create these tables if these don't exist (surprising)
-      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
-      #Strategy of names for the names and tables 
-      dialect: org.hibernate.dialect.MySQL5Dialect
+      ddl-auto: none 
+      dialect: org.hibernate.dialect.PostgreSQLDialect
       show_sql: true
-      use_sql_comments: true
+ 

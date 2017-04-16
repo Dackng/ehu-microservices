@@ -7,15 +7,15 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface CatalogRepository extends 	CrudRepository<Catalog, Long> {
 	
-	Catalog findElementByIdPrimaryAndIdSecondary(Long idPrimary, Long idSecondary);
+	Catalog findElementByPrimaryIdAndSecondaryId(Long primaryId, Long secondaryId);
 	
-	List<Catalog> findElementsListByIdPrimary(Long idPrimary);
+	List<Catalog> findElementsListByPrimaryId(Long primaryId);
 	
 	/**
 	 * Find the first element in a primary group where it will ordered.
 	 * This "Top1" return only 1 row 
-	 * @param idPrimary
+	 * @param primaryId
 	 * @return
 	 */
-	List<Catalog> findTop1ByIdPrimary(Long idPrimary, Sort sortIdSecondaryAsc);
+	List<Catalog> findTop1ByPrimaryId(Long primaryId, Sort sortSecondaryIdAsc);
 }

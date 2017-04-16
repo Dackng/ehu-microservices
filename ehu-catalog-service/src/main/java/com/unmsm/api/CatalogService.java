@@ -21,23 +21,23 @@ public class CatalogService {
 		this.catalogRepository = catalogRepository;
 	}
 	
-	public Catalog findElementByIdPrimaryAndIdSecondary(PrimaryGroup idPrimary, Long idSecondary){
-		return catalogRepository.findElementByIdPrimaryAndIdSecondary(idPrimary.getValue(), idSecondary);
+	public Catalog findElementByPrimaryIdAndSecondaryId(PrimaryGroup primaryId, Long secondaryId){
+		return catalogRepository.findElementByPrimaryIdAndSecondaryId(primaryId.getValue(), secondaryId);
 	}
 	
-	public List<Catalog> getElementsListByIdPrimary(PrimaryGroup idPrimary){
-		return catalogRepository.findElementsListByIdPrimary(idPrimary.getValue());
+	public List<Catalog> getElementsListByPrimaryId(PrimaryGroup primaryId){
+		return catalogRepository.findElementsListByPrimaryId(primaryId.getValue());
 	}
 	
 	/**
 	 * This method will return a list of only one element where this element is the first
 	 * of primary group ordered asc
-	 * @param idPrimary
+	 * @param primaryId
 	 * @return
 	 */
-	public Catalog getFirstElementOfPrimaryGroup(PrimaryGroup idPrimary){
-		List<Catalog> list = catalogRepository.findTop1ByIdPrimary(idPrimary.getValue(), 
-				sortByIdAsc(NamesField.ID_SECONDARY.getValue()));
+	public Catalog getFirstElementOfPrimaryGroup(PrimaryGroup primaryId){
+		List<Catalog> list = catalogRepository.findTop1ByPrimaryId(primaryId.getValue(), 
+				sortByIdAsc(NamesField.SECONDARY_ID.getValue()));
 		return list != null ? list.get(0) : null; 
 	}
 	

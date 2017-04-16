@@ -32,13 +32,13 @@ public class CatalogApplicationTests {
 	CatalogRepository catalogRepository;
 	
 	@Test
-	public void findElementByIdPrimaryAndIdSecondary(){
-		log.info(catalogRepository.findElementByIdPrimaryAndIdSecondary(PrimaryGroup.CIVIL_STATUS.getValue(), 1L).toString());
+	public void findElementByPrimaryIdAndSecondaryId(){
+		log.info(catalogRepository.findElementByPrimaryIdAndSecondaryId(PrimaryGroup.CIVIL_STATUS.getValue(), 1L).toString());
 	}
 	
 	@Test
-	public void findElementsListByIdPrimary(){
-		List<Catalog> lista = catalogRepository.findElementsListByIdPrimary(PrimaryGroup.EAP.getValue());
+	public void findElementsListByPrimaryId(){
+		List<Catalog> lista = catalogRepository.findElementsListByPrimaryId(PrimaryGroup.EAP.getValue());
 		if(lista.isEmpty()){
 			fail("Elements not found");
 		}else{
@@ -49,8 +49,8 @@ public class CatalogApplicationTests {
 	}
 	
 	@Test
-	public void findTop1ByIdPrimary(){
-		log.info(catalogRepository.findTop1ByIdPrimary(PrimaryGroup.MEDICAL_STATUS.getValue(), 
-				new Sort(Sort.Direction.ASC, NamesField.ID_SECONDARY.getValue())).toString());
+	public void findTop1ByPrimaryId(){
+		log.info(catalogRepository.findTop1ByPrimaryId(PrimaryGroup.MEDICAL_STATUS.getValue(), 
+				new Sort(Sort.Direction.ASC, NamesField.SECONDARY_ID.getValue())).toString());
 	}
 }

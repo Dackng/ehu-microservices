@@ -1,7 +1,7 @@
 package com.unmsm.catalog;
 
 public enum NamesField {
-	ID_SECONDARY("idSecondary"),
+	SECONDARY_ID("secondaryId"),
     NAME("name");
 	
 	private String value;

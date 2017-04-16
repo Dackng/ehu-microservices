@@ -23,16 +23,17 @@ public class Pacient implements Serializable {
 	private String names;
 	private String paternalSurname;
 	private String maternalSurname;
-	private Long idCivilStatus;
-	private String nameCivilStatus;
+	private Long civilStatusId;
+	private String civilStatusName;
 	private String email;
-	private Long idMedicalStatus;
-	private String nameMedicalStatus;
-	private Long idEap;
-	private String nameEap;
+	private Long medicalStatusId;
+	private String medicalStatusName;
+	private Long eapId;
+	private String eapName;
 	private Date birthDate;
 	private Long telephone;
 	private Character gender;
+	private String address;
 	private Ubigeo ubigeo;
 	
 	public Pacient(){}
@@ -69,18 +70,18 @@ public class Pacient implements Serializable {
 	public void setMaternalSurname(String maternalSurname) {
 		this.maternalSurname = maternalSurname;
 	}
-	public Long getIdCivilStatus() {
-		return idCivilStatus;
+	public Long getCivilStatusId() {
+		return civilStatusId;
 	}
-	public void setIdCivilStatus(Long idCivilStatus) {
-		this.idCivilStatus = idCivilStatus;
+	public void setCivilStatusId(Long civilStatusId) {
+		this.civilStatusId = civilStatusId;
 	}
 	@Transient
-	public String getNameCivilStatus() {
-		return nameCivilStatus;
+	public String getCivilStatusName() {
+		return civilStatusName;
 	}
-	public void setNameCivilStatus(String nameCivilStatus) {
-		this.nameCivilStatus = nameCivilStatus;
+	public void setCivilStatusName(String civilStatusName) {
+		this.civilStatusName = civilStatusName;
 	}
 	public String getEmail() {
 		return email;
@@ -88,31 +89,31 @@ public class Pacient implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Long getIdMedicalStatus() {
-		return idMedicalStatus;
+	public Long getMedicalStatusId() {
+		return medicalStatusId;
 	}
-	public void setIdMedicalStatus(Long idMedicalStatus) {
-		this.idMedicalStatus = idMedicalStatus;
-	}
-	@Transient
-	public String getNameMedicalStatus() {
-		return nameMedicalStatus;
-	}
-	public void setNameMedicalStatus(String nameMedicalStatus) {
-		this.nameMedicalStatus = nameMedicalStatus;
-	}
-	public Long getIdEap() {
-		return idEap;
-	}
-	public void setIdEap(Long idEap) {
-		this.idEap = idEap;
+	public void setMedicalStatusId(Long medicalStatusId) {
+		this.medicalStatusId = medicalStatusId;
 	}
 	@Transient
-	public String getNameEap() {
-		return nameEap;
+	public String getMedicalStatusName() {
+		return medicalStatusName;
 	}
-	public void setNameEap(String nameEap) {
-		this.nameEap = nameEap;
+	public void setMedicalStatusName(String medicalStatusName) {
+		this.medicalStatusName = medicalStatusName;
+	}
+	public Long getEapId() {
+		return eapId;
+	}
+	public void setEapId(Long eapId) {
+		this.eapId = eapId;
+	}
+	@Transient
+	public String getEapName() {
+		return eapName;
+	}
+	public void setEapName(String eapName) {
+		this.eapName = eapName;
 	}
 	public Date getBirthDate() {
 		return birthDate;
@@ -143,10 +144,10 @@ public class Pacient implements Serializable {
 	@Override
 	public String toString() {
 		return "Pacient [id=" + id + ", code=" + code + ", names=" + names + ", paternalSurname=" + paternalSurname
-				+ ", maternalSurname=" + maternalSurname + ", idCivilStatus=" + idCivilStatus + ", nameCivilStatus="
-				+ nameCivilStatus + ", email=" + email + ", idMedicalStatus=" + idMedicalStatus + ", nameMedicalStatus="
-				+ nameMedicalStatus + ", idEap=" + idEap + ", nameEap=" + nameEap + ", birthDate=" + birthDate
-				+ ", telephone=" + telephone + ", gender=" + gender + ", ubigeo=" + ubigeo + "]";
+				+ ", maternalSurname=" + maternalSurname + ", civilStatusId=" + civilStatusId + ", civilStatusName="
+				+ civilStatusName + ", email=" + email + ", medicalStatusId=" + medicalStatusId + ", medicalStatusName="
+				+ medicalStatusName + ", eapId=" + eapId + ", eapName=" + eapName + ", birthDate=" + birthDate
+				+ ", telephone=" + telephone + ", gender=" + gender + ", address=" + address + ", ubigeo=" + ubigeo
+				+ "]";
 	}
-
 }
