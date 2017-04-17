@@ -1,6 +1,10 @@
+spring:
+  profiles:
+    active: heroku
+
 ---
 spring:
-  profiles: default
+  profiles: development
 server:
   port: 8010  
 eureka:
@@ -11,6 +15,22 @@ eureka:
     fetchRegistry: false
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+---
+spring:
+  profiles: heroku
+server:
+  port: 8010  
+eureka:
+  instance:
+    hostname: localhost  
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  password: ${EUREKA_USER_PASSWORD:password}
+
       
 # primary, secondary, and tertiary illustrate running 3 intercommunicating instances.  This example has them running
 # side-by-side on localhost -- which is unrealistic in production -- but does illustrate how multiple instances collaborate.

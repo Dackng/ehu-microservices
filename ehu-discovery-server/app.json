@@ -1,0 +1,8 @@
+{
+  "name": "EHU Discovery Server for Heroku",
+  "env": {
+      "EUREKA_USER_PASSWORD": {
+          "description": "Password for the admin interface."
+      }
+  }
+}
