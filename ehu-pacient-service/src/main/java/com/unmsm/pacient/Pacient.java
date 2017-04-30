@@ -31,7 +31,7 @@ public class Pacient implements Serializable {
 	private String medicalStatusName;
 	private Long eapId;
 	private String eapName;
-	@JsonFormat(pattern="dd/MM/yyyy")
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date birthDate;
 	private Long telephone;
 	private Character gender;
