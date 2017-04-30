@@ -50,7 +50,7 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://192.168.1.33:8010/eureka/
+      defaultZone: http://192.168.1.42:8010/eureka/
 
 ---
 spring:

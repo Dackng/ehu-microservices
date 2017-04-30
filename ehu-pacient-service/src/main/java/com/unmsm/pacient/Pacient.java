@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.unmsm.ubigeo.Ubigeo;
 
@@ -30,6 +31,7 @@ public class Pacient implements Serializable {
 	private String medicalStatusName;
 	private Long eapId;
 	private String eapName;
+	@JsonFormat(pattern="dd/MM/yyyy")
 	private Date birthDate;
 	private Long telephone;
 	private Character gender;
@@ -39,7 +41,7 @@ public class Pacient implements Serializable {
 	public Pacient(){}
 	
 	@Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Long getId() {
 		return id;
 	}
@@ -139,6 +141,12 @@ public class Pacient implements Serializable {
 	}
 	public void setUbigeo(Ubigeo ubigeo) {
 		this.ubigeo = ubigeo;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	@Override
