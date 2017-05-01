@@ -20,7 +20,7 @@ eureka:
 spring:
   profiles: heroku
 server:
-  port: 8010  
+  port: ${PORT:5000}  
 eureka:
   instance:
     hostname: localhost  

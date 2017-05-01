@@ -31,20 +31,16 @@ public class PacientService {
 		Pacient pacient = pacientRepository.findPacientByCode(code);
 		if(pacient != null){
 			Catalog catalog = restTemplate.getForObject(
-					//"http://ehu-catalog-service/api/element/medical-status/" + pacient.getMedicalStatusId(),Catalog.class);
-					"http://ehu-catalog-service.herokuapp.com/api/element/medical-status/" + pacient.getMedicalStatusId(),Catalog.class);
+					"http://ehu-catalog-service/api/element/medical-status/" + pacient.getMedicalStatusId(),Catalog.class);
 			pacient.setMedicalStatusName(catalog.getName());
 			catalog = restTemplate.getForObject(
-					//"http://ehu-catalog-service/api/element/civil-status/" + pacient.getCivilStatusId(),Catalog.class);
-					"http://ehu-catalog-service.herokuapp.com/api/element/civil-status/" + pacient.getCivilStatusId(),Catalog.class);
+					"http://ehu-catalog-service/api/element/civil-status/" + pacient.getCivilStatusId(),Catalog.class);
 			pacient.setCivilStatusName(catalog.getName());
 			catalog = restTemplate.getForObject(
-					//"http://ehu-catalog-service/api/element/eap/" + pacient.getEapId(),Catalog.class);
-					"http://ehu-catalog-service.herokuapp.com/api/element/eap/" + pacient.getEapId(),Catalog.class);
+					"http://ehu-catalog-service/api/element/eap/" + pacient.getEapId(),Catalog.class);
 			pacient.setEapName(catalog.getName());
 			Ubigeo ubigeo = restTemplate.getForObject(
-					//"http://ehu-ubigeo-service/api/element/ubigeo/" +
-					"http://ehu-ubigeo-service.herokuapp.com/api/element/ubigeo/" + 
+					"http://ehu-ubigeo-service/api/element/ubigeo/" +
 					pacient.getUbigeo().getUbigeoCode(), Ubigeo.class);
 			pacient.setUbigeo(ubigeo);
 		}
