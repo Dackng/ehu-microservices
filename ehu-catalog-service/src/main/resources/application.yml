@@ -6,6 +6,8 @@ spring:
   profiles: heroku
 eureka:
   client:
+    registerWithEureka: true
+    fetchRegistry: true
     serviceUrl:
       defaultZone: ${EUREKA_URL:http://user:password@localhost:5000}/eureka/
   instance:

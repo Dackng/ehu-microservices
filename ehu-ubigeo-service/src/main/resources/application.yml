@@ -5,14 +5,6 @@ spring:
 ---
 spring:
   profiles: heroku
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: ${EUREKA_URL:http://user:password@localhost:5000}/eureka/
-  instance:
-    hostname: ${DOMAIN_NAME}
-    nonSecurePort: 80
-  password: ${USER_PASSWORD:password}
   datasource:
     url: jdbc:postgresql://ec2-54-235-153-124.compute-1.amazonaws.com:5432/d97r7ru1gv11ti
     username: ynyrybozcxyccd
@@ -28,7 +20,16 @@ eureka:
       ddl-auto: none
       dialect: org.hibernate.dialect.PostgreSQLDialect
       show_sql: true
-
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: ${EUREKA_URL:http://user:password@localhost:5000}/eureka/
+  instance:
+    hostname: ${DOMAIN_NAME}
+    nonSecurePort: 80
+  password: ${USER_PASSWORD:password}
 ---
 server:
   port: 8015  
