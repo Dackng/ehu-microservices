@@ -31,7 +31,6 @@ public class Pacient implements Serializable {
 	private String medicalStatusName;
 	private Long eapId;
 	private String eapName;
-	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date birthDate;
 	private Long telephone;
 	private Character gender;
@@ -117,8 +116,9 @@ public class Pacient implements Serializable {
 	public void setEapName(String eapName) {
 		this.eapName = eapName;
 	}
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	public Date getBirthDate() {
-		return birthDate;
+		return birthDate; 
 	}
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
