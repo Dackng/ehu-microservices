@@ -25,40 +25,40 @@ public class CatalogController {
 		this.catalogService = catalogService; 
 	}
 	
-	@RequestMapping(path = "/element/civil-status/{secondaryId}", method = RequestMethod.GET, name = "findCivilStatusBySecondaryId")
-	public ResponseEntity<Catalog> findCivilStatusBySecondaryId(
+	@RequestMapping(path = "/element/civil-state/{secondaryId}", method = RequestMethod.GET, name = "findCivilStateBySecondaryId")
+	public ResponseEntity<Catalog> findCivilStateBySecondaryId(
 			@PathVariable("secondaryId") Long secondaryId){
-		return Optional.ofNullable(catalogService.findElementByPrimaryIdAndSecondaryId(PrimaryGroup.CIVIL_STATUS, secondaryId))
+		return Optional.ofNullable(catalogService.findElementByPrimaryIdAndSecondaryId(PrimaryGroup.CIVIL_STATE, secondaryId))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
 	
-	@RequestMapping(path = "/list/civil-status", method = RequestMethod.GET, name = "getCivilStatusList")
-	public ResponseEntity<List<Catalog>> getCivilStatusList(){
-		return Optional.ofNullable(catalogService.getElementsListByPrimaryId(PrimaryGroup.CIVIL_STATUS))
+	@RequestMapping(path = "/list/civil-state", method = RequestMethod.GET, name = "getCivilStateList")
+	public ResponseEntity<List<Catalog>> getCivilStateList(){
+		return Optional.ofNullable(catalogService.getElementsListByPrimaryId(PrimaryGroup.CIVIL_STATE))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
 	
-	@RequestMapping(path = "/element/medical-status/{secondaryId}", method = RequestMethod.GET, name = "findMedicaltatusBySecondaryId")
-	public ResponseEntity<Catalog> findMedicaltatusBySecondaryId(
+	@RequestMapping(path = "/element/emr-state/{secondaryId}", method = RequestMethod.GET, name = "findEmrStateBySecondaryId")
+	public ResponseEntity<Catalog> findEmrStateBySecondaryId(
 			@PathVariable("secondaryId") Long secondaryId){
-		return Optional.ofNullable(catalogService.findElementByPrimaryIdAndSecondaryId(PrimaryGroup.MEDICAL_STATUS, secondaryId))
+		return Optional.ofNullable(catalogService.findElementByPrimaryIdAndSecondaryId(PrimaryGroup.EMR_STATE, secondaryId))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
 	
-	@RequestMapping(path = "/element/first-medical-status", method = RequestMethod.GET, name = "getFirstMedicalStatus")
-	public ResponseEntity<Catalog> getFirstMedicalStatus(){
-		return Optional.ofNullable(catalogService.getFirstElementOfPrimaryGroup(PrimaryGroup.MEDICAL_STATUS))
+	@RequestMapping(path = "/element/first-emr-state", method = RequestMethod.GET, name = "getFirstEmrState")
+	public ResponseEntity<Catalog> getFirstEmrState(){
+		return Optional.ofNullable(catalogService.getFirstElementOfPrimaryGroup(PrimaryGroup.EMR_STATE))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
 	
 	
-	@RequestMapping(path = "/list/medical-status", method = RequestMethod.GET, name = "getMedicalStatusList")
-	public ResponseEntity<List<Catalog>> getMedicalStatusList(){
-		return Optional.ofNullable(catalogService.getElementsListByPrimaryId(PrimaryGroup.MEDICAL_STATUS))
+	@RequestMapping(path = "/list/emr-state", method = RequestMethod.GET, name = "getEmrStateList")
+	public ResponseEntity<List<Catalog>> getEmrStateList(){
+		return Optional.ofNullable(catalogService.getElementsListByPrimaryId(PrimaryGroup.EMR_STATE))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}

@@ -33,7 +33,7 @@ public class CatalogApplicationTests {
 	
 	@Test
 	public void findElementByPrimaryIdAndSecondaryId(){
-		log.info(catalogRepository.findElementByPrimaryIdAndSecondaryId(PrimaryGroup.CIVIL_STATUS.getValue(), 1L).toString());
+		log.info(catalogRepository.findElementByPrimaryIdAndSecondaryId(PrimaryGroup.CIVIL_STATE.getValue(), 1L).toString());
 	}
 	
 	@Test
@@ -50,7 +50,7 @@ public class CatalogApplicationTests {
 	
 	@Test
 	public void findTop1ByPrimaryId(){
-		log.info(catalogRepository.findTop1ByPrimaryId(PrimaryGroup.MEDICAL_STATUS.getValue(), 
+		log.info(catalogRepository.findTop1ByPrimaryId(PrimaryGroup.EMR_STATE.getValue(), 
 				new Sort(Sort.Direction.ASC, NamesField.SECONDARY_ID.getValue())).toString());
 	}
 }

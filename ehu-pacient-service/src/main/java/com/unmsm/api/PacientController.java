@@ -24,10 +24,10 @@ public class PacientController {
 		this.pacientService = pacientService;
 	}
 	
-	@RequestMapping(path = "/save", method = RequestMethod.POST)
-	public ResponseEntity<Pacient> savePacient(@RequestBody Pacient pacient) throws Exception{
+	@RequestMapping(path = "/register", method = RequestMethod.POST)
+	public ResponseEntity<Pacient> registerPacient(@RequestBody Pacient pacient) throws Exception{
 		assert pacient != null;
-		return Optional.ofNullable(pacientService.savePacient(pacient))
+		return Optional.ofNullable(pacientService.registerPacient(pacient))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElseThrow(() -> new Exception("Could not save pacient"));
 	}

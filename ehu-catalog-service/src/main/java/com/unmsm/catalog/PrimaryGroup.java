@@ -1,8 +1,8 @@
 package com.unmsm.catalog;
 
 public enum PrimaryGroup {
-    CIVIL_STATUS(1L),
-    MEDICAL_STATUS(2L),
+    CIVIL_STATE(1L),
+    EMR_STATE(2L),
 	EAP(3L),
 	GENDER(4L);
 	

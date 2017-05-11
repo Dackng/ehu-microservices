@@ -24,11 +24,11 @@ public class Pacient implements Serializable {
 	private String names;
 	private String paternalSurname;
 	private String maternalSurname;
-	private Long civilStatusId;
-	private String civilStatusName;
+	private Long civilStateId;
+	private String civilStateName;
 	private String email;
-	private Long medicalStatusId;
-	private String medicalStatusName;
+	private Long emrStateId;
+	private String emrStateName;
 	private Long eapId;
 	private String eapName;
 	private Date birthDate;
@@ -71,18 +71,18 @@ public class Pacient implements Serializable {
 	public void setMaternalSurname(String maternalSurname) {
 		this.maternalSurname = maternalSurname;
 	}
-	public Long getCivilStatusId() {
-		return civilStatusId;
+	public Long getCivilStateId() {
+		return civilStateId;
 	}
-	public void setCivilStatusId(Long civilStatusId) {
-		this.civilStatusId = civilStatusId;
+	public void setCivilStateId(Long civilStateId) {
+		this.civilStateId = civilStateId;
 	}
 	@Transient
-	public String getCivilStatusName() {
-		return civilStatusName;
+	public String getCivilStateName() {
+		return civilStateName;
 	}
-	public void setCivilStatusName(String civilStatusName) {
-		this.civilStatusName = civilStatusName;
+	public void setCivilStateName(String civilStateName) {
+		this.civilStateName = civilStateName;
 	}
 	public String getEmail() {
 		return email;
@@ -90,18 +90,18 @@ public class Pacient implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Long getMedicalStatusId() {
-		return medicalStatusId;
+	public Long getEmrStateId() {
+		return emrStateId;
 	}
-	public void setMedicalStatusId(Long medicalStatusId) {
-		this.medicalStatusId = medicalStatusId;
+	public void setEmrStateId(Long emrStateId) {
+		this.emrStateId = emrStateId;
 	}
 	@Transient
-	public String getMedicalStatusName() {
-		return medicalStatusName;
+	public String getEmrStateName() {
+		return emrStateName;
 	}
-	public void setMedicalStatusName(String medicalStatusName) {
-		this.medicalStatusName = medicalStatusName;
+	public void setEmrStateName(String emrStateName) {
+		this.emrStateName = emrStateName;
 	}
 	public Long getEapId() {
 		return eapId;
@@ -152,9 +152,9 @@ public class Pacient implements Serializable {
 	@Override
 	public String toString() {
 		return "Pacient [id=" + id + ", code=" + code + ", names=" + names + ", paternalSurname=" + paternalSurname
-				+ ", maternalSurname=" + maternalSurname + ", civilStatusId=" + civilStatusId + ", civilStatusName="
-				+ civilStatusName + ", email=" + email + ", medicalStatusId=" + medicalStatusId + ", medicalStatusName="
-				+ medicalStatusName + ", eapId=" + eapId + ", eapName=" + eapName + ", birthDate=" + birthDate
+				+ ", maternalSurname=" + maternalSurname + ", civilStateId=" + civilStateId + ", civilStateName="
+				+ civilStateName + ", email=" + email + ", emrStateId=" + emrStateId + ", medicalStateName="
+				+ emrStateName + ", eapId=" + eapId + ", eapName=" + eapName + ", birthDate=" + birthDate
 				+ ", telephone=" + telephone + ", gender=" + gender + ", address=" + address + ", ubigeo=" + ubigeo
 				+ "]";
 	}
