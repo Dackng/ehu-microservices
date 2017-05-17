@@ -1,15 +1,15 @@
 spring:
   profiles:
-    active: heroku
+    active: test
 
 
 ---
 server:
-  port: 8014  
+  port: 8016  
 spring:
   profiles: development
   datasource:
-    url: jdbc:postgresql://localhost:5432/emrdb
+    url: jdbc:postgresql://localhost:5432/generalmedicinetestdb
     username: postgres
     password: postgres
   jpa:
@@ -30,7 +30,7 @@ eureka:
 spring:
   profiles: test
   application:
-    name: ehu-emr-service
+    name: ehu-general-medicine-test-service
   datasource:
     url: jdbc:postgresql://localhost:5432/emrdb
     username: postgres
