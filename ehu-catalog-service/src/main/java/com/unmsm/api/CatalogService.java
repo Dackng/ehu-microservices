@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.unmsm.catalog.Catalog;
 import com.unmsm.catalog.CatalogRepository;
-import com.unmsm.catalog.NamesField;
+import com.unmsm.catalog.FieldNames;
 import com.unmsm.catalog.PrimaryGroup;
 
 @Service
@@ -21,7 +21,7 @@ public class CatalogService {
 		this.catalogRepository = catalogRepository;
 	}
 	
-	public Catalog findElementByPrimaryIdAndSecondaryId(PrimaryGroup primaryId, Long secondaryId){
+	public Catalog findElementByPrimaryIdAndSecondaryId(PrimaryGroup primaryId, Integer secondaryId){
 		return catalogRepository.findElementByPrimaryIdAndSecondaryId(primaryId.getValue(), secondaryId);
 	}
 	
@@ -37,7 +37,7 @@ public class CatalogService {
 	 */
 	public Catalog getFirstElementOfPrimaryGroup(PrimaryGroup primaryId){
 		List<Catalog> list = catalogRepository.findTop1ByPrimaryId(primaryId.getValue(), 
-				sortByIdAsc(NamesField.SECONDARY_ID.getValue()));
+				sortByIdAsc(FieldNames.SECONDARY_ID.getValue()));
 		return list != null ? list.get(0) : null; 
 	}
 	

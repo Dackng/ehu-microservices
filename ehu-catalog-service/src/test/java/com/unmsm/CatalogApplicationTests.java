@@ -17,7 +17,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.unmsm.catalog.Catalog;
 import com.unmsm.catalog.CatalogRepository;
-import com.unmsm.catalog.NamesField;
+import com.unmsm.catalog.FieldNames;
 import com.unmsm.catalog.PrimaryGroup;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -33,7 +33,7 @@ public class CatalogApplicationTests {
 	
 	@Test
 	public void findElementByPrimaryIdAndSecondaryId(){
-		log.info(catalogRepository.findElementByPrimaryIdAndSecondaryId(PrimaryGroup.CIVIL_STATE.getValue(), 1L).toString());
+		log.info(catalogRepository.findElementByPrimaryIdAndSecondaryId(PrimaryGroup.CIVIL_STATE.getValue(), 1).toString());
 	}
 	
 	@Test
@@ -51,6 +51,6 @@ public class CatalogApplicationTests {
 	@Test
 	public void findTop1ByPrimaryId(){
 		log.info(catalogRepository.findTop1ByPrimaryId(PrimaryGroup.EMR_STATE.getValue(), 
-				new Sort(Sort.Direction.ASC, NamesField.SECONDARY_ID.getValue())).toString());
+				new Sort(Sort.Direction.ASC, FieldNames.SECONDARY_ID.getValue())).toString());
 	}
 }

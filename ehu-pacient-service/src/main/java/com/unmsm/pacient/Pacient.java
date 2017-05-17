@@ -20,19 +20,19 @@ public class Pacient implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@JsonIgnore
 	private Long id;
-	private Long code;
+	private Integer code;
 	private String names;
 	private String paternalSurname;
 	private String maternalSurname;
-	private Long civilStateId;
+	private Integer civilStateId;
 	private String civilStateName;
 	private String email;
-	private Long emrStateId;
+	private Integer emrStateId;
 	private String emrStateName;
-	private Long eapId;
+	private Integer eapId;
 	private String eapName;
 	private Date birthDate;
-	private Long telephone;
+	private Integer telephone;
 	private Character gender;
 	private String address;
 	private Ubigeo ubigeo;
@@ -47,10 +47,10 @@ public class Pacient implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Long getCode() {
+	public Integer getCode() {
 		return code;
 	}
-	public void setCode(Long code) {
+	public void setCode(Integer code) {
 		this.code = code;
 	}
 	public String getNames() {
@@ -71,10 +71,10 @@ public class Pacient implements Serializable {
 	public void setMaternalSurname(String maternalSurname) {
 		this.maternalSurname = maternalSurname;
 	}
-	public Long getCivilStateId() {
+	public Integer getCivilStateId() {
 		return civilStateId;
 	}
-	public void setCivilStateId(Long civilStateId) {
+	public void setCivilStateId(Integer civilStateId) {
 		this.civilStateId = civilStateId;
 	}
 	@Transient
@@ -90,10 +90,10 @@ public class Pacient implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Long getEmrStateId() {
+	public Integer getEmrStateId() {
 		return emrStateId;
 	}
-	public void setEmrStateId(Long emrStateId) {
+	public void setEmrStateId(Integer emrStateId) {
 		this.emrStateId = emrStateId;
 	}
 	@Transient
@@ -103,10 +103,10 @@ public class Pacient implements Serializable {
 	public void setEmrStateName(String emrStateName) {
 		this.emrStateName = emrStateName;
 	}
-	public Long getEapId() {
+	public Integer getEapId() {
 		return eapId;
 	}
-	public void setEapId(Long eapId) {
+	public void setEapId(Integer eapId) {
 		this.eapId = eapId;
 	}
 	@Transient
@@ -123,10 +123,10 @@ public class Pacient implements Serializable {
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
-	public Long getTelephone() {
+	public Integer getTelephone() {
 		return telephone;
 	}
-	public void setTelephone(Long telephone) {
+	public void setTelephone(Integer telephone) {
 		this.telephone = telephone;
 	}
 	public Character getGender() {

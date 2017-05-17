@@ -15,8 +15,8 @@ public class Catalog implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@JsonIgnore
 	private Long id;
-	private Long primaryId;
-	private Long secondaryId;
+	private Integer primaryId;
+	private Integer secondaryId;
 	private String name;
 	private String description;
 	private Character state;
@@ -31,16 +31,16 @@ public class Catalog implements Serializable{
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Long getPrimaryId() {
+	public Integer getPrimaryId() {
 		return primaryId;
 	}
-	public void setPrimaryId(Long primaryId) {
+	public void setPrimaryId(Integer primaryId) {
 		this.primaryId = primaryId;
 	}
-	public Long getSecondaryId() {
+	public Integer getSecondaryId() {
 		return secondaryId;
 	}
-	public void setSecondaryId(Long secondaryId) {
+	public void setSecondaryId(Integer secondaryId) {
 		this.secondaryId = secondaryId;
 	}
 	public String getName() {

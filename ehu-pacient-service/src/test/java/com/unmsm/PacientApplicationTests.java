@@ -24,8 +24,8 @@ public class PacientApplicationTests {
 	PacientRepository pacientRepository;
 	
 	@Test
-	public void findPacientByCode(){
-		log.info(pacientRepository.findPacientByCode(12400200L).toString());
+	public void findPacientByCodeTest(){
+		log.info(pacientRepository.findPacientByCode(12400221).toString());
 	}
 	
 	@Test

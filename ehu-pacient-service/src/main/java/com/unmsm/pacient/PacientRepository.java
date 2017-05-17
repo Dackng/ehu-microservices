@@ -2,7 +2,7 @@ package com.unmsm.pacient;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface PacientRepository extends CrudRepository<Pacient, Long> {
+public interface PacientRepository extends CrudRepository<Pacient, Integer> {
 
-	Pacient findPacientByCode(Long code);
+	Pacient findPacientByCode(Integer code);
 }

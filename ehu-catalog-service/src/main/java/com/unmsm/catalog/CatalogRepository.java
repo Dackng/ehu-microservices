@@ -5,11 +5,11 @@ import java.util.List;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.CrudRepository;
 
-public interface CatalogRepository extends 	CrudRepository<Catalog, Long> {
+public interface CatalogRepository extends 	CrudRepository<Catalog, Integer> {
 	
-	Catalog findElementByPrimaryIdAndSecondaryId(Long primaryId, Long secondaryId);
+	Catalog findElementByPrimaryIdAndSecondaryId(Integer primaryId, Integer secondaryId);
 	
-	List<Catalog> findElementsListByPrimaryId(Long primaryId);
+	List<Catalog> findElementsListByPrimaryId(Integer primaryId);
 	
 	/**
 	 * Find the first element in a primary group where it will ordered.
@@ -17,5 +17,5 @@ public interface CatalogRepository extends 	CrudRepository<Catalog, Long> {
 	 * @param primaryId
 	 * @return
 	 */
-	List<Catalog> findTop1ByPrimaryId(Long primaryId, Sort sortSecondaryIdAsc);
+	List<Catalog> findTop1ByPrimaryId(Integer primaryId, Sort sortSecondaryIdAsc);
 }

@@ -27,7 +27,7 @@ public class CatalogController {
 	
 	@RequestMapping(path = "/element/civil-state/{secondaryId}", method = RequestMethod.GET, name = "findCivilStateBySecondaryId")
 	public ResponseEntity<Catalog> findCivilStateBySecondaryId(
-			@PathVariable("secondaryId") Long secondaryId){
+			@PathVariable("secondaryId") Integer secondaryId){
 		return Optional.ofNullable(catalogService.findElementByPrimaryIdAndSecondaryId(PrimaryGroup.CIVIL_STATE, secondaryId))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
@@ -42,7 +42,7 @@ public class CatalogController {
 	
 	@RequestMapping(path = "/element/emr-state/{secondaryId}", method = RequestMethod.GET, name = "findEmrStateBySecondaryId")
 	public ResponseEntity<Catalog> findEmrStateBySecondaryId(
-			@PathVariable("secondaryId") Long secondaryId){
+			@PathVariable("secondaryId") Integer secondaryId){
 		return Optional.ofNullable(catalogService.findElementByPrimaryIdAndSecondaryId(PrimaryGroup.EMR_STATE, secondaryId))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
@@ -65,7 +65,7 @@ public class CatalogController {
 	
 	@RequestMapping(path = "/element/eap/{secondaryId}", method = RequestMethod.GET, name = "findEapBySecondaryId")
 	public ResponseEntity<Catalog> findEapBySecondaryId(
-			@PathVariable("secondaryId") Long secondaryId){
+			@PathVariable("secondaryId") Integer secondaryId){
 		return Optional.ofNullable(catalogService.findElementByPrimaryIdAndSecondaryId(PrimaryGroup.EAP, secondaryId))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
