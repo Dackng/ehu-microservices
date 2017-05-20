@@ -2,16 +2,23 @@ package com.unmsm.generalmedicine;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.unmsm.symptom.Symptom;
 
 @Entity
 public class GeneralMedicineTest implements Serializable{
@@ -32,8 +39,11 @@ public class GeneralMedicineTest implements Serializable{
 	private Boolean isFinished;
 	private Integer emrPacientCode;
 	private Integer emrHealthPlanId;
+	private Set<Symptom> symptoms;
 	
-	public GeneralMedicineTest(){}
+	public GeneralMedicineTest(){
+		symptoms = new HashSet<Symptom>();
+	}
 	
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -122,16 +132,28 @@ public class GeneralMedicineTest implements Serializable{
 	public void setEmrHealthPlanId(Integer emrHealthPlanId) {
 		this.emrHealthPlanId = emrHealthPlanId;
 	}
+	@OneToMany(mappedBy = "generalMedicineTest", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	public Set<Symptom> getSymptoms() {
+		return symptoms;
+	}
+	public void setSymptoms(Set<Symptom> symptoms) {
+		this.symptoms = symptoms;
+	}
+	@PrePersist
+	protected void onCreate() {
+		isFinished = Constants.NOT_FINISH.getValue();
+	}
 	@PreUpdate
 	protected void onUpdate() {
 	    updatedAt = new Date();
 	}
-
+	
 	@Override
 	public String toString() {
 		return "GeneralMedicineTest [id=" + id + ", employeeCode=" + employeeCode + ", weight=" + weight + ", stature="
 				+ stature + ", pulse=" + pulse + ", lmp=" + lmp + ", systolic=" + systolic + ", diastolic=" + diastolic
 				+ ", rightEye=" + rightEye + ", leftEye=" + leftEye + ", updatedAt=" + updatedAt + ", isFinished="
-				+ isFinished + ", emrPacientCode=" + emrPacientCode + ", emrHealthPlanId=" + emrHealthPlanId + "]";
+				+ isFinished + ", emrPacientCode=" + emrPacientCode + ", emrHealthPlanId=" + emrHealthPlanId
+				+ ", symptoms=" + symptoms + "]";
 	}
 }

@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: test
+    active: development
 
 
 ---
@@ -32,7 +32,7 @@ spring:
   application:
     name: ehu-general-medicine-test-service
   datasource:
-    url: jdbc:postgresql://localhost:5432/emrdb
+    url: jdbc:postgresql://localhost:5432/generalmedicinetestdb
     username: postgres
     password: postgres
   jpa:
