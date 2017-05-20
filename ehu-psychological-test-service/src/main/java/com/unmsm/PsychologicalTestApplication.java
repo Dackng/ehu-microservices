@@ -12,10 +12,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
-public class RadiologyTestApplication {
+public class PsychologicalTestApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RadiologyTestApplication.class, args);
+		SpringApplication.run(PsychologicalTestApplication.class, args);
 	}
 	
 	/**
