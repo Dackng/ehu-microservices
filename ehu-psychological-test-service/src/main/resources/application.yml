@@ -37,7 +37,7 @@ hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 60000
   
 ---
 server:
-  port: 8018
+  port: 8020
 spring:
   profiles: development
   datasource:
