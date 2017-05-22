@@ -4,5 +4,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface EmrRepository extends CrudRepository<Emr, Integer>{
 	
-	Emr findEmrByPacientCodeAndHealthPlanId(Integer pacientCode, Integer healthPlanId);
+	Emr findEmrByHealthPlanIdAndPacientCode(Integer healthPlanId, Integer pacientCode);
 }

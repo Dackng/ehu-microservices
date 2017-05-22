@@ -12,7 +12,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.unmsm.laboratory.Constants;
+import com.unmsm.laboratory.FieldValue;
 
 @Entity
 public class LaboratoryTest implements Serializable{
@@ -104,7 +104,7 @@ public class LaboratoryTest implements Serializable{
 	}
 	@PrePersist
 	protected void onCreate() {
-		isFinished = Constants.NOT_FINISH.getValue();
+		isFinished = FieldValue.NOT_FINISH.getValue();
 	}
 
 	@Override

@@ -78,9 +78,16 @@ public class CatalogController {
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
 	
+	@RequestMapping(path = "/element/current-health-plan", method = RequestMethod.GET, name = "findCurrentHealthPlan")
+	public ResponseEntity<Catalog> findCurrentHealthPlan(){
+		return Optional.ofNullable(catalogService.findCurrentHealthPlan(PrimaryGroup.HEALTH_PLAN))
+				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
+	
 	@RequestMapping(path = "/list/gender", method = RequestMethod.GET, name = "getGenderList")
-	public ResponseEntity<List<Catalog>> getGenderList(){
-		return Optional.ofNullable(catalogService.getElementsListByPrimaryId(PrimaryGroup.GENDER))
+	public ResponseEntity<List<Character>> getGenderList(){
+		return Optional.ofNullable(catalogService.getGenderElementsList())
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}

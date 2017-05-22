@@ -1,12 +1,12 @@
-package com.unmsm.radiology;
+package com.unmsm.generalmedicine;
 
-public enum Constants {
+public enum FieldValue {
     FINISHED(true),
     NOT_FINISH(false);
 	
 	private Boolean value;
 	
-	private Constants(Boolean value){ 
+	private FieldValue(Boolean value){ 
 		this.value = value; 
 	}
 	public Boolean getValue() {

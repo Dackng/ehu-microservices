@@ -18,4 +18,6 @@ public interface CatalogRepository extends 	CrudRepository<Catalog, Integer> {
 	 * @return
 	 */
 	List<Catalog> findTop1ByPrimaryId(Integer primaryId, Sort sortSecondaryIdAsc);
+
+	Catalog findElementByPrimaryIdAndState(Integer primaryId, Character state);
 }

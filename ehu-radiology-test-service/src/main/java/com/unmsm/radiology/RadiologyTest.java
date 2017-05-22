@@ -82,7 +82,7 @@ public class RadiologyTest implements Serializable{
 	}
 	@PrePersist
 	protected void onCreate() {
-		isFinished = Constants.NOT_FINISH.getValue();
+		isFinished = FieldValue.NOT_FINISH.getValue();
 	}
 	@Override
 	public String toString() {

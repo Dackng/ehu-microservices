@@ -23,6 +23,10 @@ public class Catalog implements Serializable{
 	
 	public Catalog(){}
 	
+	public Catalog(String name){
+		this.name = name;
+	}
+	
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Long getId() {

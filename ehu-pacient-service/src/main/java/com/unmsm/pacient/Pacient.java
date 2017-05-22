@@ -27,8 +27,6 @@ public class Pacient implements Serializable {
 	private Integer civilStateId;
 	private String civilStateName;
 	private String email;
-	private Integer emrStateId;
-	private String emrStateName;
 	private Integer eapId;
 	private String eapName;
 	private Date birthDate;
@@ -90,19 +88,6 @@ public class Pacient implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Integer getEmrStateId() {
-		return emrStateId;
-	}
-	public void setEmrStateId(Integer emrStateId) {
-		this.emrStateId = emrStateId;
-	}
-	@Transient
-	public String getEmrStateName() {
-		return emrStateName;
-	}
-	public void setEmrStateName(String emrStateName) {
-		this.emrStateName = emrStateName;
-	}
 	public Integer getEapId() {
 		return eapId;
 	}
@@ -153,8 +138,7 @@ public class Pacient implements Serializable {
 	public String toString() {
 		return "Pacient [id=" + id + ", code=" + code + ", names=" + names + ", paternalSurname=" + paternalSurname
 				+ ", maternalSurname=" + maternalSurname + ", civilStateId=" + civilStateId + ", civilStateName="
-				+ civilStateName + ", email=" + email + ", emrStateId=" + emrStateId + ", medicalStateName="
-				+ emrStateName + ", eapId=" + eapId + ", eapName=" + eapName + ", birthDate=" + birthDate
+				+ civilStateName + ", email=" + email + ", eapId=" + eapId + ", eapName=" + eapName + ", birthDate=" + birthDate
 				+ ", telephone=" + telephone + ", gender=" + gender + ", address=" + address + ", ubigeo=" + ubigeo
 				+ "]";
 	}

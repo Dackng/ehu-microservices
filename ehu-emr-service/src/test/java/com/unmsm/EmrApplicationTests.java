@@ -32,7 +32,6 @@ public class EmrApplicationTests {
 		Emr emr = new Emr();
 		emr.setPacientCode(12200221);
 		emr.setStateId(1);
-//		emr.setCreatedAt(new Date());
 		emr.setHealthPlanId(1);
 		assert emrRepository.save(emr) != null;
 		log.info("success");
@@ -40,7 +39,7 @@ public class EmrApplicationTests {
 	
 	@Test
 	public void findEmrByPacientCodeAndHealthPlanIdTest(){
-		Emr emr = emrRepository.findEmrByPacientCodeAndHealthPlanId(12200221, 1);
+		Emr emr = emrRepository.findEmrByHealthPlanIdAndPacientCode(1,12200221);
 		assert emr != null;
 		log.info("success");
 		log.info(emr.toString());

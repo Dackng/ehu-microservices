@@ -1,5 +1,42 @@
 package com.unmsm.api;
 
-public class EmrController {
+import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.unmsm.emr.Emr;
+
+@RestController
+@RequestMapping(path = "/api")
+public class EmrController {
+	
+	private EmrService emrService;
+	
+	@Autowired
+	public EmrController(EmrService emrService){
+		this.emrService = emrService;
+	}
+	
+	@RequestMapping(path = "/register", method = RequestMethod.POST)
+	public ResponseEntity<Emr> registerEmr
+		(@RequestBody Emr emr)throws Exception{
+		assert emr != null;
+		return Optional.ofNullable(emrService.registerEmr(emr))
+				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+				.orElseThrow(() -> new Exception("Could not save emr"));
+	}
+	
+	@RequestMapping(path = "/find/{healthPlanId}/{pacientCode}", method = RequestMethod.GET, name = "findEmrByHealthPlanIdAndPacientCode")
+	public ResponseEntity<Emr> findEmrByHealthPlanIdAndPacientCode(@PathVariable("healthPlanId") Integer healthPlanId, @PathVariable("pacientCode") Integer pacientCode){
+		return Optional.ofNullable(emrService.findEmrByHealthPlanIdAndPacientCode(healthPlanId, pacientCode))
+				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
 }

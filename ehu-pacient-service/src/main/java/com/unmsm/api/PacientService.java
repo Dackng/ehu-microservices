@@ -31,9 +31,6 @@ public class PacientService {
 		Pacient pacient = pacientRepository.findPacientByCode(code);
 		if(pacient != null){
 			Catalog catalog = restTemplate.getForObject(
-					"http://ehu-catalog-service/api/element/emr-state/" + pacient.getEmrStateId(),Catalog.class);
-			pacient.setEmrStateName(catalog.getName());
-			catalog = restTemplate.getForObject(
 					"http://ehu-catalog-service/api/element/civil-state/" + pacient.getCivilStateId(),Catalog.class);
 			pacient.setCivilStateName(catalog.getName());
 			catalog = restTemplate.getForObject(

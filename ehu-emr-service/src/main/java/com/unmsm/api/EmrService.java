@@ -22,8 +22,8 @@ public class EmrService{
 	}
 	
 	@HystrixCommand
-	public Emr findEmrByPacientCodeAndHealthPlanId(Integer pacientCode, Integer healthPlanId){
-		Emr emr = emrRepository.findEmrByPacientCodeAndHealthPlanId(pacientCode, healthPlanId); 
+	public Emr findEmrByHealthPlanIdAndPacientCode(Integer healthPlanId, Integer pacientCode){
+		Emr emr = emrRepository.findEmrByHealthPlanIdAndPacientCode(healthPlanId, pacientCode); 
 		assert emr != null;
 		Catalog catalog = restTemplate.getForObject(
 					"http://ehu-catalog-service/api/element/emr-state/" + emr.getStateId(), Catalog.class);

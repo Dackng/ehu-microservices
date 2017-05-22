@@ -141,7 +141,7 @@ public class GeneralMedicineTest implements Serializable{
 	}
 	@PrePersist
 	protected void onCreate() {
-		isFinished = Constants.NOT_FINISH.getValue();
+		isFinished = FieldValue.NOT_FINISH.getValue();
 	}
 	@PreUpdate
 	protected void onUpdate() {
