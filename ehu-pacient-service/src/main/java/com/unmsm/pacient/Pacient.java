@@ -37,6 +37,13 @@ public class Pacient implements Serializable {
 	
 	public Pacient(){}
 	
+	public Pacient(Integer code, String names, String paternalSurname, String maternalSurname){
+		this.code = code;
+		this.names = names;
+		this.paternalSurname = paternalSurname;
+		this.maternalSurname = maternalSurname;
+	}
+	
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Long getId() {

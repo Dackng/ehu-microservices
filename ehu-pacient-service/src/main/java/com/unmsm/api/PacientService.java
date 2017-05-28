@@ -27,7 +27,7 @@ public class PacientService {
 	}
 
 	@HystrixCommand
-	public Pacient findPacientByCode(Integer code) {
+	public Pacient findPacientDetailByCode(Integer code) {
 		Pacient pacient = pacientRepository.findPacientByCode(code);
 		if(pacient != null){
 			Catalog catalog = restTemplate.getForObject(
@@ -42,5 +42,9 @@ public class PacientService {
 			pacient.setUbigeo(ubigeo);
 		}
 		return pacient;
+	}
+	
+	public Pacient findPacientSummaryByCode(Integer code) {
+		return pacientRepository.findPacientSummaryByCode(code);
 	}
 }

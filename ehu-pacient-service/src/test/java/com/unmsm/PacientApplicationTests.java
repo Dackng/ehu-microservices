@@ -1,5 +1,6 @@
 package com.unmsm;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -24,12 +25,18 @@ public class PacientApplicationTests {
 	PacientRepository pacientRepository;
 	
 	@Test
-	public void findPacientByCodeTest(){
+	@Ignore
+	public void findPacientDetailByCodeTest(){
 		log.info(pacientRepository.findPacientByCode(12400221).toString());
 	}
 	
 	@Test
 	public void savePacient(){
 	
+	}
+	
+	@Test
+	public void findPacientSummaryByCodeTest(){
+		log.info(pacientRepository.findPacientSummaryByCode(12200221).toString());
 	}
 }

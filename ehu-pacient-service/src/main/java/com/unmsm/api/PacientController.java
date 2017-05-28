@@ -32,11 +32,17 @@ public class PacientController {
 				.orElseThrow(() -> new Exception("Could not save pacient"));
 	}
 	
-	@RequestMapping(path = "/find/{code}", method = RequestMethod.GET, name = "findPacientByCode")
-	public ResponseEntity<Pacient> findPacientByCode(@PathVariable("code") Integer code){
-		return Optional.ofNullable(pacientService.findPacientByCode(code))
+	@RequestMapping(path = "/find-detail/{code}", method = RequestMethod.GET, name = "findPacientDetailByCode")
+	public ResponseEntity<Pacient> findPacientDetailByCode(@PathVariable("code") Integer code){
+		return Optional.ofNullable(pacientService.findPacientDetailByCode(code))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
 	
+	@RequestMapping(path = "/find-summary/{code}", method = RequestMethod.GET, name = "findPacientSummaryByCode")
+	public ResponseEntity<Pacient> findPacientSummaryByCode(@PathVariable("code") Integer code){
+		return Optional.ofNullable(pacientService.findPacientSummaryByCode(code))
+				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
 }
