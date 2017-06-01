@@ -22,7 +22,7 @@ public class Emr implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@JsonIgnore
 	private Long id;
-	private Integer pacientCode;
+	private Integer patientCode;
 	private String employeeCode;
 	private String code;
 	private Integer stateId;
@@ -41,11 +41,11 @@ public class Emr implements Serializable{
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Integer getPacientCode() {
-		return pacientCode;
+	public Integer getPatientCode() {
+		return patientCode;
 	}
-	public void setPacientCode(Integer pacientCode) {
-		this.pacientCode = pacientCode;
+	public void setPatientCode(Integer patientCode) {
+		this.patientCode = patientCode;
 	}
 	public String getEmployeeCode() {
 		return employeeCode;
@@ -99,7 +99,7 @@ public class Emr implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "Emr [id=" + id + ", pacientCode=" + pacientCode + ", employeeCode=" + employeeCode + ", code=" + code
+		return "Emr [id=" + id + ", patientCode=" + patientCode + ", employeeCode=" + employeeCode + ", code=" + code
 				+ ", stateId=" + stateId + ", stateName=" + stateName + ", createdAt=" + createdAt + ", updatedAt="
 				+ updatedAt + ", healthPlanId=" + healthPlanId + "]";
 	}

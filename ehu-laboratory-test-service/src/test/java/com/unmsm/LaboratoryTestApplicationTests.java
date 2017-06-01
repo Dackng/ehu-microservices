@@ -29,15 +29,15 @@ public class LaboratoryTestApplicationTests {
 	@Ignore
 	public void registerLaboratoryTestTest() {
 		LaboratoryTest laboratoryTest = new LaboratoryTest();
-		laboratoryTest.setEmrPacientCode(12200221);
+		laboratoryTest.setEmrPatientCode(12200221);
 		laboratoryTest.setEmrHealthPlanId(1);
 		assert laboratoryTestRepository.save(laboratoryTest)!= null;
 		log.info("success");
 	}
 	
 	@Test
-	public void findLaboratoryTestByEmrHealthPlanIdAndEmrPacientCodeTest(){
-		LaboratoryTest laboratoryTest = laboratoryTestRepository.findLaboratoryTestByEmrHealthPlanIdAndEmrPacientCode
+	public void findLaboratoryTestByEmrHealthPlanIdAndEmrPatientCodeTest(){
+		LaboratoryTest laboratoryTest = laboratoryTestRepository.findLaboratoryTestByEmrHealthPlanIdAndEmrPatientCode
 				(1, 12200221);
 		assert laboratoryTest != null;
 		log.info(laboratoryTest.toString());

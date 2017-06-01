@@ -29,15 +29,15 @@ public class PsychologicalTestApplicationTests {
 	@Ignore
 	public void registerPsychologicalTestTest() {
 		PsychologicalTest psychologicalTest = new PsychologicalTest();
-		psychologicalTest.setEmrPacientCode(12200221);
+		psychologicalTest.setEmrPatientCode(12200221);
 		psychologicalTest.setEmrHealthPlanId(1);
 		assert psychologicalTestRepository.save(psychologicalTest) != null;
 		log.info("success");
 	}
 
 	@Test
-	public void findPsychologicalTestByEmrHealthPlanIdAndEmrPacientCodeTest() {
-		PsychologicalTest psychologicalTest = psychologicalTestRepository.findPsychologicalTestByEmrHealthPlanIdAndEmrPacientCode(1,
+	public void findPsychologicalTestByEmrHealthPlanIdAndEmrPatientCodeTest() {
+		PsychologicalTest psychologicalTest = psychologicalTestRepository.findPsychologicalTestByEmrHealthPlanIdAndEmrPatientCode(1,
 				12200221);
 		assert psychologicalTest != null;
 		log.info(psychologicalTest.toString());

@@ -33,9 +33,9 @@ public class RadiologyTestController {
 				.orElseThrow(() -> new Exception("Could not save radiology test"));
 	}
 	
-	@RequestMapping(path = "/find/{emrHealthPlanId}/{emrPacientCode}", method = RequestMethod.GET, name = "findRadiologyTestByEmrHealthPlanIdAndEmrPacientCode")
-	public ResponseEntity<RadiologyTest> findRadiologyTestByEmrHealthPlanIdAndEmrPacientCode(@PathVariable("emrHealthPlanId") Integer emrHealthPlanId, @PathVariable("emrPacientCode") Integer emrPacientCode){
-		return Optional.ofNullable(radiologyTestService.findRadiologyTestByEmrHealthPlanIdAndEmrPacientCode(emrHealthPlanId, emrPacientCode))
+	@RequestMapping(path = "/find/{emrHealthPlanId}/{emrPatientCode}", method = RequestMethod.GET, name = "findRadiologyTestByEmrHealthPlanIdAndEmrPatientCode")
+	public ResponseEntity<RadiologyTest> findRadiologyTestByEmrHealthPlanIdAndEmrPatientCode(@PathVariable("emrHealthPlanId") Integer emrHealthPlanId, @PathVariable("emrPatientCode") Integer emrPatientCode){
+		return Optional.ofNullable(radiologyTestService.findRadiologyTestByEmrHealthPlanIdAndEmrPatientCode(emrHealthPlanId, emrPatientCode))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}

@@ -28,7 +28,7 @@ public class PsychologicalTest implements Serializable{
 	private String observation;
 	private Date updatedAt;
 	private Boolean isFinished;
-	private Integer emrPacientCode;
+	private Integer emrPatientCode;
 	private Integer emrHealthPlanId;
 	
 	public PsychologicalTest(){}
@@ -96,11 +96,11 @@ public class PsychologicalTest implements Serializable{
 	public void setIsFinished(Boolean isFinished) {
 		this.isFinished = isFinished;
 	}
-	public Integer getEmrPacientCode() {
-		return emrPacientCode;
+	public Integer getEmrPatientCode() {
+		return emrPatientCode;
 	}
-	public void setEmrPacientCode(Integer emrPacientCode) {
-		this.emrPacientCode = emrPacientCode;
+	public void setEmrPatientCode(Integer emrPatientCode) {
+		this.emrPatientCode = emrPatientCode;
 	}
 	public Integer getEmrHealthPlanId() {
 		return emrHealthPlanId;
@@ -117,7 +117,7 @@ public class PsychologicalTest implements Serializable{
 		return "PsychologicalTest [id=" + id + ", employeeCode=" + employeeCode + ", depressionResult="
 				+ depressionResult + ", depressionStateId=" + depressionStateId + ", anxietyResult=" + anxietyResult
 				+ ", anxietyStateId=" + anxietyStateId + ", diagnosisId=" + diagnosisId + ", observation=" + observation
-				+ ", updatedAt=" + updatedAt + ", isFinished=" + isFinished + ", emrPacientCode=" + emrPacientCode
+				+ ", updatedAt=" + updatedAt + ", isFinished=" + isFinished + ", emrPatientCode=" + emrPatientCode
 				+ ", emrHealthPlanId=" + emrHealthPlanId + "]";
 	}
 }

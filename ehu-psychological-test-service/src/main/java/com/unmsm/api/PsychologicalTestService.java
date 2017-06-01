@@ -20,7 +20,7 @@ public class PsychologicalTestService {
 		return psychologicalTestRepository.save(psychologicalTest);
 	}
 	
-	public PsychologicalTest findPsychologicalTestByEmrHealthPlanIdAndEmrPacientCode(Integer emrHealthPlanId, Integer emrPacientCode){
-		return psychologicalTestRepository.findPsychologicalTestByEmrHealthPlanIdAndEmrPacientCode(emrHealthPlanId, emrPacientCode);
+	public PsychologicalTest findPsychologicalTestByEmrHealthPlanIdAndEmrPatientCode(Integer emrHealthPlanId, Integer emrPatientCode){
+		return psychologicalTestRepository.findPsychologicalTestByEmrHealthPlanIdAndEmrPatientCode(emrHealthPlanId, emrPatientCode);
 	}
 }

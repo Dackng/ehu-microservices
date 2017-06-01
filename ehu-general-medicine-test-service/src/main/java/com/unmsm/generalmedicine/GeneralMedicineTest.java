@@ -37,7 +37,7 @@ public class GeneralMedicineTest implements Serializable{
 	private Double leftEye;
 	private Date updatedAt;
 	private Boolean isFinished;
-	private Integer emrPacientCode;
+	private Integer emrPatientCode;
 	private Integer emrHealthPlanId;
 	private Set<Symptom> symptoms;
 	
@@ -120,11 +120,11 @@ public class GeneralMedicineTest implements Serializable{
 	public void setIsFinished(Boolean isFinished) {
 		this.isFinished = isFinished;
 	}
-	public Integer getEmrPacientCode() {
-		return emrPacientCode;
+	public Integer getEmrPatientCode() {
+		return emrPatientCode;
 	}
-	public void setEmrPacientCode(Integer emrPacientCode) {
-		this.emrPacientCode = emrPacientCode;
+	public void setEmrPatientCode(Integer emrPatientCode) {
+		this.emrPatientCode = emrPatientCode;
 	}
 	public Integer getEmrHealthPlanId() {
 		return emrHealthPlanId;
@@ -153,7 +153,7 @@ public class GeneralMedicineTest implements Serializable{
 		return "GeneralMedicineTest [id=" + id + ", employeeCode=" + employeeCode + ", weight=" + weight + ", stature="
 				+ stature + ", pulse=" + pulse + ", lmp=" + lmp + ", systolic=" + systolic + ", diastolic=" + diastolic
 				+ ", rightEye=" + rightEye + ", leftEye=" + leftEye + ", updatedAt=" + updatedAt + ", isFinished="
-				+ isFinished + ", emrPacientCode=" + emrPacientCode + ", emrHealthPlanId=" + emrHealthPlanId
+				+ isFinished + ", emrPatientCode=" + emrPatientCode + ", emrHealthPlanId=" + emrHealthPlanId
 				+ ", symptoms=" + symptoms + "]";
 	}
 }

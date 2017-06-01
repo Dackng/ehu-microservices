@@ -35,8 +35,8 @@ public class GeneralMedicineTestApplicationTests {
 	public void registerGeneralMedicineTestTest() {
 		GeneralMedicineTest generalMedicineTest = new GeneralMedicineTest();
 		generalMedicineTest.setEmrHealthPlanId(1);
-		generalMedicineTest.setEmrPacientCode(12200221);
-		Set symptoms = new HashSet<Symptom>(){{
+		generalMedicineTest.setEmrPatientCode(12200221);
+		Set<Symptom> symptoms = new HashSet<Symptom>(){{
 			Symptom symptom = new Symptom(generalMedicineTest);
 			symptom.setCieId(1);
 			symptom.setAppointment(new Date());
@@ -52,9 +52,9 @@ public class GeneralMedicineTestApplicationTests {
 	}
 
 	@Test
-	public void findGeneralMedicineTestByEmrHealthPlanIdAndEmrPacientCodeTest() {
+	public void findGeneralMedicineTestByEmrHealthPlanIdAndEmrPatientCodeTest() {
 		GeneralMedicineTest generalMedicineTest = generalMedicineTestRepository
-				.findGeneralMedicineTestByEmrHealthPlanIdAndEmrPacientCode(1, 12200221);
+				.findGeneralMedicineTestByEmrHealthPlanIdAndEmrPatientCode(1, 12200221);
 		assert generalMedicineTest != null;
 		log.info(generalMedicineTest.toString());
 		log.info("success");

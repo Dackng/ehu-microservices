@@ -33,13 +33,13 @@ public class GeneralMedicineTestController {
 				.orElseThrow(() -> new Exception("Could not save general medicine test"));
 	}
 
-	@RequestMapping(path = "/find/{emrHealthPlanId}/{emrPacientCode}", method = RequestMethod.GET, name = "findGeneralMedicineTestByEmrHealthPlanIdAndEmrPacientCode")
-	public ResponseEntity<GeneralMedicineTest> findGeneralMedicineTestByEmrHealthPlanIdAndEmrPacientCode(
+	@RequestMapping(path = "/find/{emrHealthPlanId}/{emrPatientCode}", method = RequestMethod.GET, name = "findGeneralMedicineTestByEmrHealthPlanIdAndEmrPatientCode")
+	public ResponseEntity<GeneralMedicineTest> findGeneralMedicineTestByEmrHealthPlanIdAndEmrPatientCode(
 			@PathVariable("emrHealthPlanId") Integer emrHealthPlanId,
-			@PathVariable("emrPacientCode") Integer emrPacientCode) {
+			@PathVariable("emrPatientCode") Integer emrPatientCode) {
 		return Optional
 				.ofNullable(generalMedicineTestService
-						.findGeneralMedicineTestByEmrHealthPlanIdAndEmrPacientCode(emrHealthPlanId, emrPacientCode))
+						.findGeneralMedicineTestByEmrHealthPlanIdAndEmrPatientCode(emrHealthPlanId, emrPatientCode))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}

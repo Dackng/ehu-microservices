@@ -24,7 +24,7 @@ public class RadiologyTest implements Serializable{
 	private String observation;
 	private Date updatedAt;
 	private Boolean isFinished;
-	private Integer emrPacientCode;
+	private Integer emrPatientCode;
 	private Integer emrHealthPlanId;
 	
 	public RadiologyTest(){}
@@ -68,11 +68,11 @@ public class RadiologyTest implements Serializable{
 	public void setIsFinished(Boolean isFinished) {
 		this.isFinished = isFinished;
 	}
-	public Integer getEmrPacientCode() {
-		return emrPacientCode;
+	public Integer getEmrPatientCode() {
+		return emrPatientCode;
 	}
-	public void setEmrPacientCode(Integer emrPacientCode) {
-		this.emrPacientCode = emrPacientCode;
+	public void setEmrPatientCode(Integer emrPatientCode) {
+		this.emrPatientCode = emrPatientCode;
 	}
 	public Integer getEmrHealthPlanId() {
 		return emrHealthPlanId;
@@ -87,7 +87,7 @@ public class RadiologyTest implements Serializable{
 	@Override
 	public String toString() {
 		return "Radiology [id=" + id + ", typeId=" + typeId + ", employeeCode=" + employeeCode + ", observation="
-				+ observation + ", updatedAt=" + updatedAt + ", isFinished=" + isFinished + ", emrPacientCode="
-				+ emrPacientCode + ", emrHealthPlanId=" + emrHealthPlanId + "]";
+				+ observation + ", updatedAt=" + updatedAt + ", isFinished=" + isFinished + ", emrPatientCode="
+				+ emrPatientCode + ", emrHealthPlanId=" + emrHealthPlanId + "]";
 	}
 }

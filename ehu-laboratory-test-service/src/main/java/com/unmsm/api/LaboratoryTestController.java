@@ -33,9 +33,9 @@ public class LaboratoryTestController {
 				.orElseThrow(() -> new Exception("Could not save laboratory test"));
 	}
 	
-	@RequestMapping(path = "/find/{emrHealthPlanId}/{emrPacientCode}", method = RequestMethod.GET, name = "findLaboratoryTestByEmrHealthPlanIdAndEmrPacientCode")
-	public ResponseEntity<LaboratoryTest> findLaboratoryTestByEmrHealthPlanIdAndEmrPacientCode(@PathVariable("emrHealthPlanId") Integer emrHealthPlanId, @PathVariable("emrPacientCode") Integer emrPacientCode){
-		return Optional.ofNullable(laboratoryTestService.findLaboratoryTestByEmrHealthPlanIdAndEmrPacientCode(emrHealthPlanId, emrPacientCode))
+	@RequestMapping(path = "/find/{emrHealthPlanId}/{emrPatientCode}", method = RequestMethod.GET, name = "findLaboratoryTestByEmrHealthPlanIdAndEmrPatientCode")
+	public ResponseEntity<LaboratoryTest> findLaboratoryTestByEmrHealthPlanIdAndEmrPatientCode(@PathVariable("emrHealthPlanId") Integer emrHealthPlanId, @PathVariable("emrPatientCode") Integer emrPatientCode){
+		return Optional.ofNullable(laboratoryTestService.findLaboratoryTestByEmrHealthPlanIdAndEmrPatientCode(emrHealthPlanId, emrPatientCode))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}

@@ -20,7 +20,7 @@ public class LaboratoryTestService {
 		return laboratoryTestRepository.save(laboratoryTest);
 	}
 	
-	public LaboratoryTest findLaboratoryTestByEmrHealthPlanIdAndEmrPacientCode(Integer emrHealthPlanId, Integer emrPacientCode){
-		return laboratoryTestRepository.findLaboratoryTestByEmrHealthPlanIdAndEmrPacientCode(emrHealthPlanId, emrPacientCode);
+	public LaboratoryTest findLaboratoryTestByEmrHealthPlanIdAndEmrPatientCode(Integer emrHealthPlanId, Integer emrPatientCode){
+		return laboratoryTestRepository.findLaboratoryTestByEmrHealthPlanIdAndEmrPatientCode(emrHealthPlanId, emrPatientCode);
 	}
 }

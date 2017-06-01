@@ -29,15 +29,15 @@ public class RadiologyTestApplicationTests {
 	@Ignore
 	public void registerRadiologyTestTest() {
 		RadiologyTest radiologyTest = new RadiologyTest();
-		radiologyTest.setEmrPacientCode(12200221);
+		radiologyTest.setEmrPatientCode(12200221);
 		radiologyTest.setEmrHealthPlanId(1);
 		assert radiologyTestRepository.save(radiologyTest) != null;
 		log.info("success");
 	}
 
 	@Test
-	public void findRadiologyTestByEmrHealthPlanIdAndEmrPacientCodeTest() {
-		RadiologyTest radiologyTest = radiologyTestRepository.findRadiologyTestByEmrHealthPlanIdAndEmrPacientCode(1,
+	public void findRadiologyTestByEmrHealthPlanIdAndEmrPatientCodeTest() {
+		RadiologyTest radiologyTest = radiologyTestRepository.findRadiologyTestByEmrHealthPlanIdAndEmrPatientCode(1,
 				12200221);
 		assert radiologyTest != null;
 		log.info(radiologyTest.toString());

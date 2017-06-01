@@ -28,7 +28,7 @@ public class LaboratoryTest implements Serializable{
 	private String observation;
 	private Date updatedAt;
 	private Boolean isFinished;
-	private Integer emrPacientCode;
+	private Integer emrPatientCode;
 	private Integer emrHealthPlanId;
 	
 	public LaboratoryTest(){}
@@ -96,11 +96,11 @@ public class LaboratoryTest implements Serializable{
 	public void setEmrHealthPlanId(Integer emrHealthPlanId) {
 		this.emrHealthPlanId = emrHealthPlanId;
 	}
-	public Integer getEmrPacientCode() {
-		return emrPacientCode;
+	public Integer getEmrPatientCode() {
+		return emrPatientCode;
 	}
-	public void setEmrPacientCode(Integer emrPacientCode) {
-		this.emrPacientCode = emrPacientCode;
+	public void setEmrPatientCode(Integer emrPatientCode) {
+		this.emrPatientCode = emrPatientCode;
 	}
 	@PrePersist
 	protected void onCreate() {
@@ -112,7 +112,7 @@ public class LaboratoryTest implements Serializable{
 		return "LaboratoryTest [id=" + id + ", employeeCode=" + employeeCode + ", serologicalTestId="
 				+ serologicalTestId + ", hemoglobin=" + hemoglobin + ", hemoglobinStateId=" + hemoglobinStateId
 				+ ", bloodCountId=" + bloodCountId + ", observation=" + observation + ", updatedAt=" + updatedAt
-				+ ", isFinished=" + isFinished + ", emrPacientCode=" + emrPacientCode + ", emrHealthPlanId="
+				+ ", isFinished=" + isFinished + ", emrPatientCode=" + emrPatientCode + ", emrHealthPlanId="
 				+ emrHealthPlanId + "]";
 	}
 }

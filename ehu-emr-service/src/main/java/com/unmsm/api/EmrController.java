@@ -33,9 +33,9 @@ public class EmrController {
 				.orElseThrow(() -> new Exception("Could not save emr"));
 	}
 	
-	@RequestMapping(path = "/find/{healthPlanId}/{pacientCode}", method = RequestMethod.GET, name = "findEmrByHealthPlanIdAndPacientCode")
-	public ResponseEntity<Emr> findEmrByHealthPlanIdAndPacientCode(@PathVariable("healthPlanId") Integer healthPlanId, @PathVariable("pacientCode") Integer pacientCode){
-		return Optional.ofNullable(emrService.findEmrByHealthPlanIdAndPacientCode(healthPlanId, pacientCode))
+	@RequestMapping(path = "/find/{healthPlanId}/{patientCode}", method = RequestMethod.GET, name = "findEmrByHealthPlanIdAndPatientCode")
+	public ResponseEntity<Emr> findEmrByHealthPlanIdAndPatientCode(@PathVariable("healthPlanId") Integer healthPlanId, @PathVariable("patientCode") Integer patientCode){
+		return Optional.ofNullable(emrService.findEmrByHealthPlanIdAndPatientCode(healthPlanId, patientCode))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}

@@ -20,9 +20,9 @@ public class GeneralMedicineTestService {
 		return generalMedicineTestRepository.save(generalMedicineTest);
 	}
 
-	public GeneralMedicineTest findGeneralMedicineTestByEmrHealthPlanIdAndEmrPacientCode(Integer emrHealthPlanId,
-			Integer emrPacientCode) {
-		return generalMedicineTestRepository.findGeneralMedicineTestByEmrHealthPlanIdAndEmrPacientCode(emrHealthPlanId,
-				emrPacientCode);
+	public GeneralMedicineTest findGeneralMedicineTestByEmrHealthPlanIdAndEmrPatientCode(Integer emrHealthPlanId,
+			Integer emrPatientCode) {
+		return generalMedicineTestRepository.findGeneralMedicineTestByEmrHealthPlanIdAndEmrPatientCode(emrHealthPlanId,
+				emrPatientCode);
 	}
 }

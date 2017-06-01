@@ -4,5 +4,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface LaboratoryTestRepository extends CrudRepository<LaboratoryTest, Integer>{
 	
-	LaboratoryTest findLaboratoryTestByEmrHealthPlanIdAndEmrPacientCode(Integer emrHealthPlanId, Integer emrPacientCode);
+	LaboratoryTest findLaboratoryTestByEmrHealthPlanIdAndEmrPatientCode(Integer emrHealthPlanId, Integer emrPatientCode);
 }

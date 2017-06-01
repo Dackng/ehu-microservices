@@ -20,7 +20,7 @@ public class RadiologyTestService {
 		return radiologyTestRepository.save(radiologyTest);
 	}
 	
-	public RadiologyTest findRadiologyTestByEmrHealthPlanIdAndEmrPacientCode(Integer emrHealthPlanId, Integer emrPacientCode){
-		return radiologyTestRepository.findRadiologyTestByEmrHealthPlanIdAndEmrPacientCode(emrHealthPlanId, emrPacientCode);
+	public RadiologyTest findRadiologyTestByEmrHealthPlanIdAndEmrPatientCode(Integer emrHealthPlanId, Integer emrPatientCode){
+		return radiologyTestRepository.findRadiologyTestByEmrHealthPlanIdAndEmrPatientCode(emrHealthPlanId, emrPatientCode);
 	}
 }

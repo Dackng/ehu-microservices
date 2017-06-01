@@ -33,9 +33,9 @@ public class PsychologicalTestController {
 				.orElseThrow(() -> new Exception("Could not save psychological test"));
 	}
 	
-	@RequestMapping(path = "/find/{emrHealthPlanId}/{emrPacientCode}", method = RequestMethod.GET, name = "findPsychologicalTestByEmrHealthPlanIdAndEmrPacientCode")
-	public ResponseEntity<PsychologicalTest> findPsychologicalTestByEmrHealthPlanIdAndEmrPacientCode(@PathVariable("emrHealthPlanId") Integer emrHealthPlanId, @PathVariable("emrPacientCode") Integer emrPacientCode){
-		return Optional.ofNullable(psychologicalTestService.findPsychologicalTestByEmrHealthPlanIdAndEmrPacientCode(emrHealthPlanId, emrPacientCode))
+	@RequestMapping(path = "/find/{emrHealthPlanId}/{emrPatientCode}", method = RequestMethod.GET, name = "findPsychologicalTestByEmrHealthPlanIdAndEmrPatientCode")
+	public ResponseEntity<PsychologicalTest> findPsychologicalTestByEmrHealthPlanIdAndEmrPatientCode(@PathVariable("emrHealthPlanId") Integer emrHealthPlanId, @PathVariable("emrPatientCode") Integer emrPatientCode){
+		return Optional.ofNullable(psychologicalTestService.findPsychologicalTestByEmrHealthPlanIdAndEmrPatientCode(emrHealthPlanId, emrPatientCode))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
