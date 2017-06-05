@@ -92,7 +92,7 @@ public class CatalogController {
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
 	
-	@RequestMapping(path = "/list/symtom-type", method = RequestMethod.GET, name = "getSymptomTypeList")
+	@RequestMapping(path = "/list/symptom-type", method = RequestMethod.GET, name = "getSymptomTypeList")
 	public ResponseEntity<List<Catalog>> getSymptomTypeList(){
 		return Optional.ofNullable(catalogService.getElementsListByPrimaryId(PrimaryGroup.SYMPTOM_TYPE))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
