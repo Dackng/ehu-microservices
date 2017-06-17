@@ -31,10 +31,13 @@ public class Symptom implements Serializable{
 	
 	public Symptom(){}
 	
-	public Symptom(GeneralMedicineTest generalMedicineTest){
+	public Symptom(Integer typeId, Integer cieId, Date appointmet, String observation, GeneralMedicineTest generalMedicineTest){
+		this.typeId = typeId;
+		this.cieId = cieId;
+		this.appointment = appointmet;
+		this.observation = observation;
 		this.generalMedicineTest = generalMedicineTest;
 	}
-	
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Integer getId() {

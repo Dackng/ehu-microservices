@@ -37,10 +37,7 @@ public class GeneralMedicineTestApplicationTests {
 		generalMedicineTest.setEmrHealthPlanId(1);
 		generalMedicineTest.setEmrPatientCode(12200221);
 		Set<Symptom> symptoms = new HashSet<Symptom>(){{
-			Symptom symptom = new Symptom(generalMedicineTest);
-			symptom.setCieId(1);
-			symptom.setAppointment(new Date());
-			symptom.setTypeId(1);			
+			Symptom symptom = new Symptom(1,1,new Date(),null,generalMedicineTest);
 			add(symptom);
 		}};
 		generalMedicineTest.setSymptoms(symptoms);
