@@ -11,6 +11,7 @@ import org.springframework.boot.test.WebIntegrationTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.unmsm.radiology.FieldValue;
 import com.unmsm.radiology.RadiologyTest;
 import com.unmsm.radiology.RadiologyTestRepository;
 
@@ -41,6 +42,24 @@ public class RadiologyTestApplicationTests {
 				12200221);
 		assert radiologyTest != null;
 		log.info(radiologyTest.toString());
+		log.info("success");
+	}
+	
+	@Test
+	public void existsByEmrHealthPlanIdAndEmrPatientCodeTest() {
+		Boolean exist = radiologyTestRepository
+				.validateExistenceByEmrHealthPlanIdAndEmrPatientCode(1, 12200221);
+		assert exist != null;
+		log.info(exist.toString());
+		log.info("success");
+	}
+	
+	@Test
+	public void validateTestFinishedTest() {
+		Boolean validTest = radiologyTestRepository
+				.validateTestFinished(1, 12200221, FieldValue.FINISHED.getValue());
+		assert validTest != null;
+		log.info(validTest.toString());
 		log.info("success");
 	}
 }

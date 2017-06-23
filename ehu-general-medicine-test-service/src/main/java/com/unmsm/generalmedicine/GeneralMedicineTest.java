@@ -44,7 +44,7 @@ public class GeneralMedicineTest implements Serializable{
 	public GeneralMedicineTest(){
 		symptoms = new HashSet<Symptom>();
 	}
-	
+
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Integer getId() {

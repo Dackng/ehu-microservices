@@ -3,6 +3,7 @@ package com.unmsm.api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.unmsm.laboratory.FieldValue;
 import com.unmsm.laboratory.LaboratoryTest;
 import com.unmsm.laboratory.LaboratoryTestRepository;
 
@@ -22,5 +23,17 @@ public class LaboratoryTestService {
 	
 	public LaboratoryTest findLaboratoryTestByEmrHealthPlanIdAndEmrPatientCode(Integer emrHealthPlanId, Integer emrPatientCode){
 		return laboratoryTestRepository.findLaboratoryTestByEmrHealthPlanIdAndEmrPatientCode(emrHealthPlanId, emrPatientCode);
+	}
+	
+	public Boolean validateTestExistenceByEmrHealthPlanIdAndEmrPatientCode(Integer emrHealthPlanId,
+			Integer emrPatientCode) {
+		return laboratoryTestRepository.validateExistenceByEmrHealthPlanIdAndEmrPatientCode(emrHealthPlanId,
+				emrPatientCode);
+	}
+	
+	public Boolean getTestStateByEmrHealthPlanIdAndEmrPatientCode(Integer emrHealthPlanId,
+			Integer emrPatientCode) {
+		return laboratoryTestRepository.validateTestFinished(emrHealthPlanId,
+				emrPatientCode, FieldValue.FINISHED.getValue());
 	}
 }

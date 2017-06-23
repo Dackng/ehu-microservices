@@ -39,4 +39,26 @@ public class PsychologicalTestController {
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
+	
+	@RequestMapping(path = "/validate-existence/{emrHealthPlanId}/{emrPatientCode}", method = RequestMethod.GET, name = "validateExistenceByEmrHealthPlanIdAndEmrPatientCode")
+	public ResponseEntity<Boolean> validateExistenceByEmrHealthPlanIdAndEmrPatientCode(
+			@PathVariable("emrHealthPlanId") Integer emrHealthPlanId,
+			@PathVariable("emrPatientCode") Integer emrPatientCode) {
+		return Optional
+				.ofNullable(psychologicalTestService
+						.validateTestExistenceByEmrHealthPlanIdAndEmrPatientCode(emrHealthPlanId, emrPatientCode))
+				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
+	
+	@RequestMapping(path = "/get-state/{emrHealthPlanId}/{emrPatientCode}", method = RequestMethod.GET, name = "getTestStateByEmrHealthPlanIdAndEmrPatientCode")
+	public ResponseEntity<Boolean> getTestStateByEmrHealthPlanIdAndEmrPatientCode(
+			@PathVariable("emrHealthPlanId") Integer emrHealthPlanId,
+			@PathVariable("emrPatientCode") Integer emrPatientCode) {
+		return Optional
+				.ofNullable(psychologicalTestService
+						.getTestStateByEmrHealthPlanIdAndEmrPatientCode(emrHealthPlanId, emrPatientCode))
+				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
 }

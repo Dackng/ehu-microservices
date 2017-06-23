@@ -11,6 +11,7 @@ import org.springframework.boot.test.WebIntegrationTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.unmsm.psychological.FieldValue;
 import com.unmsm.psychological.PsychologicalTest;
 import com.unmsm.psychological.PsychologicalTestRepository;
 
@@ -44,4 +45,21 @@ public class PsychologicalTestApplicationTests {
 		log.info("success");
 	}
 
+	@Test
+	public void existsByEmrHealthPlanIdAndEmrPatientCodeTest() {
+		Boolean exist = psychologicalTestRepository
+				.validateExistenceByEmrHealthPlanIdAndEmrPatientCode(1, 12200221);
+		assert exist != null;
+		log.info(exist.toString());
+		log.info("success");
+	}
+	
+	@Test
+	public void validateTestFinishedTest() {
+		Boolean validTest = psychologicalTestRepository
+				.validateTestFinished(1, 12200221, FieldValue.FINISHED.getValue());
+		assert validTest != null;
+		log.info(validTest.toString());
+		log.info("success");
+	}
 }

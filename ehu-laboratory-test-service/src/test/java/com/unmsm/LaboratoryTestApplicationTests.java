@@ -11,6 +11,7 @@ import org.springframework.boot.test.WebIntegrationTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.unmsm.laboratory.FieldValue;
 import com.unmsm.laboratory.LaboratoryTest;
 import com.unmsm.laboratory.LaboratoryTestRepository;
 
@@ -43,5 +44,22 @@ public class LaboratoryTestApplicationTests {
 		log.info(laboratoryTest.toString());
 		log.info("success");
 	}
-
+	
+	@Test
+	public void existsByEmrHealthPlanIdAndEmrPatientCodeTest() {
+		Boolean exist = laboratoryTestRepository
+				.validateExistenceByEmrHealthPlanIdAndEmrPatientCode(1, 12200221);
+		assert exist != null;
+		log.info(exist.toString());
+		log.info("success");
+	}
+	
+	@Test
+	public void validateTestFinishedTest() {
+		Boolean validTest = laboratoryTestRepository
+				.validateTestFinished(1, 12200221, FieldValue.FINISHED.getValue());
+		assert validTest != null;
+		log.info(validTest.toString());
+		log.info("success");
+	}
 }

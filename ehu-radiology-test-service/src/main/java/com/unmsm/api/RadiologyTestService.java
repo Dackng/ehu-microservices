@@ -3,6 +3,7 @@ package com.unmsm.api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.unmsm.radiology.FieldValue;
 import com.unmsm.radiology.RadiologyTest;
 import com.unmsm.radiology.RadiologyTestRepository;
 
@@ -22,5 +23,17 @@ public class RadiologyTestService {
 	
 	public RadiologyTest findRadiologyTestByEmrHealthPlanIdAndEmrPatientCode(Integer emrHealthPlanId, Integer emrPatientCode){
 		return radiologyTestRepository.findRadiologyTestByEmrHealthPlanIdAndEmrPatientCode(emrHealthPlanId, emrPatientCode);
+	}
+	
+	public Boolean validateTestExistenceByEmrHealthPlanIdAndEmrPatientCode(Integer emrHealthPlanId,
+			Integer emrPatientCode) {
+		return radiologyTestRepository.validateExistenceByEmrHealthPlanIdAndEmrPatientCode(emrHealthPlanId,
+				emrPatientCode);
+	}
+	
+	public Boolean getTestStateByEmrHealthPlanIdAndEmrPatientCode(Integer emrHealthPlanId,
+			Integer emrPatientCode) {
+		return radiologyTestRepository.validateTestFinished(emrHealthPlanId,
+				emrPatientCode, FieldValue.FINISHED.getValue());
 	}
 }

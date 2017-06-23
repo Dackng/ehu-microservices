@@ -15,6 +15,7 @@ import org.springframework.boot.test.WebIntegrationTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.unmsm.generalmedicine.FieldValue;
 import com.unmsm.generalmedicine.GeneralMedicineTest;
 import com.unmsm.generalmedicine.GeneralMedicineTestRepository;
 import com.unmsm.symptom.Symptom;
@@ -49,11 +50,20 @@ public class GeneralMedicineTestApplicationTests {
 	}
 
 	@Test
-	public void findGeneralMedicineTestByEmrHealthPlanIdAndEmrPatientCodeTest() {
-		GeneralMedicineTest generalMedicineTest = generalMedicineTestRepository
-				.findGeneralMedicineTestByEmrHealthPlanIdAndEmrPatientCode(1, 12200221);
-		assert generalMedicineTest != null;
-		log.info(generalMedicineTest.toString());
+	public void existsByEmrHealthPlanIdAndEmrPatientCodeTest() {
+		Boolean exist = generalMedicineTestRepository
+				.validateExistenceByEmrHealthPlanIdAndEmrPatientCode(1, 12200221);
+		assert exist != null;
+		log.info(exist.toString());
+		log.info("success");
+	}
+	
+	@Test
+	public void validateTestFinishedTest() {
+		Boolean validTest = generalMedicineTestRepository
+				.validateTestFinished(1, 12200221, FieldValue.FINISHED.getValue());
+		assert validTest != null;
+		log.info(validTest.toString());
 		log.info("success");
 	}
 }

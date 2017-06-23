@@ -6,6 +6,7 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.unmsm.generalmedicine.FieldValue;
 import com.unmsm.generalmedicine.GeneralMedicineTest;
 import com.unmsm.generalmedicine.GeneralMedicineTestRepository;
 import com.unmsm.symptom.Symptom;
@@ -42,5 +43,17 @@ public class GeneralMedicineTestService {
 			Integer emrPatientCode) {
 		return generalMedicineTestRepository.findGeneralMedicineTestByEmrHealthPlanIdAndEmrPatientCode(emrHealthPlanId,
 				emrPatientCode);
+	}
+	
+	public Boolean validateTestExistenceByEmrHealthPlanIdAndEmrPatientCode(Integer emrHealthPlanId,
+			Integer emrPatientCode) {
+		return generalMedicineTestRepository.validateExistenceByEmrHealthPlanIdAndEmrPatientCode(emrHealthPlanId,
+				emrPatientCode);
+	}
+	
+	public Boolean getTestStateByEmrHealthPlanIdAndEmrPatientCode(Integer emrHealthPlanId,
+			Integer emrPatientCode) {
+		return generalMedicineTestRepository.validateTestFinished(emrHealthPlanId,
+				emrPatientCode, FieldValue.FINISHED.getValue());
 	}
 }
