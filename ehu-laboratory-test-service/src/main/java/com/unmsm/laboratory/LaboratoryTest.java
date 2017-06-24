@@ -24,7 +24,7 @@ public class LaboratoryTest implements Serializable{
 	private Integer serologicalTestId;
 	private Double hemoglobin;
 	private Integer hemoglobinStateId;
-	private Integer bloodCountId;
+	private Integer bloodTypeId;
 	private String observation;
 	private Date updatedAt;
 	private Boolean isFinished;
@@ -65,11 +65,11 @@ public class LaboratoryTest implements Serializable{
 	public void setHemoglobinStateId(Integer hemoglobinStateId) {
 		this.hemoglobinStateId = hemoglobinStateId;
 	}
-	public Integer getBloodCountId() {
-		return bloodCountId;
+	public Integer getBloodTypeId() {
+		return bloodTypeId;
 	}
-	public void setBloodCountId(Integer bloodCountId) {
-		this.bloodCountId = bloodCountId;
+	public void setBloodTypeId(Integer bloodTypeId) {
+		this.bloodTypeId = bloodTypeId;
 	}
 	public String getObservation() {
 		return observation;
@@ -111,7 +111,7 @@ public class LaboratoryTest implements Serializable{
 	public String toString() {
 		return "LaboratoryTest [id=" + id + ", employeeCode=" + employeeCode + ", serologicalTestId="
 				+ serologicalTestId + ", hemoglobin=" + hemoglobin + ", hemoglobinStateId=" + hemoglobinStateId
-				+ ", bloodCountId=" + bloodCountId + ", observation=" + observation + ", updatedAt=" + updatedAt
+				+ ", bloodTypeId=" + bloodTypeId + ", observation=" + observation + ", updatedAt=" + updatedAt
 				+ ", isFinished=" + isFinished + ", emrPatientCode=" + emrPatientCode + ", emrHealthPlanId="
 				+ emrHealthPlanId + "]";
 	}
