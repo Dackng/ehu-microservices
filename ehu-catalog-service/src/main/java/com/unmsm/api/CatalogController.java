@@ -105,4 +105,25 @@ public class CatalogController {
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
+	
+	@RequestMapping(path = "/list/serological-test", method = RequestMethod.GET, name = "getSerologicalTestList")
+	public ResponseEntity<List<Catalog>> getSerologicalTestList(){
+		return Optional.ofNullable(catalogService.getElementsListByPrimaryId(PrimaryGroup.SEROLOGICAL_TEST))
+				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
+	
+	@RequestMapping(path = "/list/blood-type", method = RequestMethod.GET, name = "getBloodTypeList")
+	public ResponseEntity<List<Catalog>> getBloodTypeList(){
+		return Optional.ofNullable(catalogService.getElementsListByPrimaryId(PrimaryGroup.BLOOD_TYPE))
+				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
+	
+	@RequestMapping(path = "/list/radiology-type", method = RequestMethod.GET, name = "getRadiologyTypeList")
+	public ResponseEntity<List<Catalog>> getRadiologyTypeList(){
+		return Optional.ofNullable(catalogService.getElementsListByPrimaryId(PrimaryGroup.RADIOLOGY_TYPE))
+				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
 }

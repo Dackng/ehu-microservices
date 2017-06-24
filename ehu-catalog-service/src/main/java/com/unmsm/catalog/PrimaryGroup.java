@@ -6,7 +6,10 @@ public enum PrimaryGroup {
 	EAP(3),
 	HEALTH_PLAN(4),
 	SYMPTOM_TYPE(5),
-	CIE(6);
+	CIE(6),
+	SEROLOGICAL_TEST(7),
+	BLOOD_TYPE(8),
+	RADIOLOGY_TYPE(9);
 	private Integer value;
 	
 	private PrimaryGroup(Integer value){ 
