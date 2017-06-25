@@ -25,10 +25,8 @@ public class Patient implements Serializable {
 	private String paternalSurname;
 	private String maternalSurname;
 	private Integer civilStateId;
-	private String civilStateName;
 	private String email;
 	private Integer eapId;
-	private String eapName;
 	private Date birthDate;
 	private Integer telephone;
 	private Character gender;
@@ -82,13 +80,6 @@ public class Patient implements Serializable {
 	public void setCivilStateId(Integer civilStateId) {
 		this.civilStateId = civilStateId;
 	}
-	@Transient
-	public String getCivilStateName() {
-		return civilStateName;
-	}
-	public void setCivilStateName(String civilStateName) {
-		this.civilStateName = civilStateName;
-	}
 	public String getEmail() {
 		return email;
 	}
@@ -100,13 +91,6 @@ public class Patient implements Serializable {
 	}
 	public void setEapId(Integer eapId) {
 		this.eapId = eapId;
-	}
-	@Transient
-	public String getEapName() {
-		return eapName;
-	}
-	public void setEapName(String eapName) {
-		this.eapName = eapName;
 	}
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	public Date getBirthDate() {
@@ -140,13 +124,11 @@ public class Patient implements Serializable {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
 	@Override
 	public String toString() {
 		return "Patient [id=" + id + ", code=" + code + ", names=" + names + ", paternalSurname=" + paternalSurname
-				+ ", maternalSurname=" + maternalSurname + ", civilStateId=" + civilStateId + ", civilStateName="
-				+ civilStateName + ", email=" + email + ", eapId=" + eapId + ", eapName=" + eapName + ", birthDate=" + birthDate
-				+ ", telephone=" + telephone + ", gender=" + gender + ", address=" + address + ", ubigeo=" + ubigeo
-				+ "]";
+				+ ", maternalSurname=" + maternalSurname + ", civilStateId=" + civilStateId + ", email=" + email
+				+ ", eapId=" + eapId + ", birthDate=" + birthDate + ", telephone=" + telephone + ", gender=" + gender
+				+ ", address=" + address + ", ubigeo=" + ubigeo + "]";
 	}
 }

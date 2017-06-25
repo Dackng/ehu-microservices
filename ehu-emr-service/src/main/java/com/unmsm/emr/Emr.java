@@ -10,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.PreUpdate;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -23,7 +22,6 @@ public class Emr implements Serializable{
 	private String employeeCode;
 	private String code;
 	private Integer stateId;
-	private String stateName;
 	private Date createdAt;
 	private Date updatedAt;
 	private Integer healthPlanId;
@@ -62,13 +60,6 @@ public class Emr implements Serializable{
 	public void setStateId(Integer stateId) {
 		this.stateId = stateId;
 	}
-	@Transient
-	public String getStateName() {
-		return stateName;
-	}
-	public void setStateName(String stateName) {
-		this.stateName = stateName;
-	}
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
 	public Date getCreatedAt() {
@@ -97,7 +88,7 @@ public class Emr implements Serializable{
 	@Override
 	public String toString() {
 		return "Emr [id=" + id + ", patientCode=" + patientCode + ", employeeCode=" + employeeCode + ", code=" + code
-				+ ", stateId=" + stateId + ", stateName=" + stateName + ", createdAt=" + createdAt + ", updatedAt="
+				+ ", stateId=" + stateId + ", createdAt=" + createdAt + ", updatedAt="
 				+ updatedAt + ", healthPlanId=" + healthPlanId + "]";
 	}
 }
