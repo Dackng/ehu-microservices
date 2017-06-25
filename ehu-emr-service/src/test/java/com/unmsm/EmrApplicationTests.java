@@ -10,6 +10,7 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.WebIntegrationTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.util.Assert;
 
 import com.unmsm.emr.Emr;
 import com.unmsm.emr.EmrRepository;
@@ -33,14 +34,14 @@ public class EmrApplicationTests {
 		emr.setPatientCode(12200221);
 		emr.setStateId(1);
 		emr.setHealthPlanId(1);
-		assert emrRepository.save(emr) != null;
+		Assert.notNull(emrRepository.save(emr));
 		log.info("success");
 	}
 	
 	@Test
 	public void findEmrByPatientCodeAndHealthPlanIdTest(){
 		Emr emr = emrRepository.findEmrByHealthPlanIdAndPatientCode(1,12200221);
-		assert emr != null;
+		Assert.notNull(emr);
 		log.info("success");
 		log.info(emr.toString());
 	}

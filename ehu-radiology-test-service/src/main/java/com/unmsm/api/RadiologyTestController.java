@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +28,7 @@ public class RadiologyTestController {
 	@RequestMapping(path = "/register", method = RequestMethod.POST)
 	public ResponseEntity<RadiologyTest> registerRadiologyTest
 		(@RequestBody RadiologyTest radiologyTest)throws Exception{
-		assert radiologyTest != null;
+		Assert.notNull(radiologyTest);
 		return Optional.ofNullable(radiologyTestService.registerRadiologyTest(radiologyTest))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElseThrow(() -> new Exception("Could not save radiology test"));

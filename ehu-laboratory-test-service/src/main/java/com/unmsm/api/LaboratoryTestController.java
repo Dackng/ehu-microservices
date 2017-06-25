@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,14 +28,16 @@ public class LaboratoryTestController {
 	@RequestMapping(path = "/register", method = RequestMethod.POST)
 	public ResponseEntity<LaboratoryTest> registerLaboratoryTest
 		(@RequestBody LaboratoryTest laboratoryTest)throws Exception{
-		assert laboratoryTest != null;
+		Assert.notNull(laboratoryTest);
 		return Optional.ofNullable(laboratoryTestService.registerLaboratoryTest(laboratoryTest))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElseThrow(() -> new Exception("Could not save laboratory test"));
 	}
 	
 	@RequestMapping(path = "/find/{emrHealthPlanId}/{emrPatientCode}", method = RequestMethod.GET, name = "findLaboratoryTestByEmrHealthPlanIdAndEmrPatientCode")
-	public ResponseEntity<LaboratoryTest> findLaboratoryTestByEmrHealthPlanIdAndEmrPatientCode(@PathVariable("emrHealthPlanId") Integer emrHealthPlanId, @PathVariable("emrPatientCode") Integer emrPatientCode){
+	public ResponseEntity<LaboratoryTest> findLaboratoryTestByEmrHealthPlanIdAndEmrPatientCode(
+			@PathVariable("emrHealthPlanId") Integer emrHealthPlanId, 
+			@PathVariable("emrPatientCode") Integer emrPatientCode){
 		return Optional.ofNullable(laboratoryTestService.findLaboratoryTestByEmrHealthPlanIdAndEmrPatientCode(emrHealthPlanId, emrPatientCode))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));

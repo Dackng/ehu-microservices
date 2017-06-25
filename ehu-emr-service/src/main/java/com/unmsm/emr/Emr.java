@@ -14,14 +14,11 @@ import javax.persistence.Transient;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 public class Emr implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
-	@JsonIgnore
-	private Long id;
+	private Integer id;
 	private Integer patientCode;
 	private String employeeCode;
 	private String code;
@@ -35,10 +32,10 @@ public class Emr implements Serializable{
 
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public Integer getPatientCode() {

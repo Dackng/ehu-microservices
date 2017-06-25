@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +28,7 @@ public class GeneralMedicineTestController {
 	@RequestMapping(path = "/register", method = RequestMethod.POST)
 	public ResponseEntity<GeneralMedicineTest> registerGeneralMedicineTest(
 			@RequestBody GeneralMedicineTest generalMedicineTest) throws Exception {
-		assert generalMedicineTest != null;
+		Assert.notNull(generalMedicineTest);
 		return Optional.ofNullable(generalMedicineTestService.registerGeneralMedicineTest(generalMedicineTest))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElseThrow(() -> new Exception("Could not save general medicine test"));
@@ -64,5 +65,5 @@ public class GeneralMedicineTestController {
 						.getTestStateByEmrHealthPlanIdAndEmrPatientCode(emrHealthPlanId, emrPatientCode))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
-	}
+	}  
 }

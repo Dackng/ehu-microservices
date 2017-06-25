@@ -2,12 +2,13 @@ package com.unmsm.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 import org.springframework.web.client.RestTemplate;
 
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.unmsm.catalog.Catalog;
 import com.unmsm.emr.Emr;
 import com.unmsm.emr.EmrRepository;
+import com.unmsm.emr.IndexOfFieldState;
 
 @Service
 public class EmrService{
@@ -21,17 +22,23 @@ public class EmrService{
 		this.restTemplate = normalRestTempalte;
 	}
 	
-	@HystrixCommand
 	public Emr findEmrByHealthPlanIdAndPatientCode(Integer healthPlanId, Integer patientCode){
-		Emr emr = emrRepository.findEmrByHealthPlanIdAndPatientCode(healthPlanId, patientCode); 
-		assert emr != null;
-		Catalog catalog = restTemplate.getForObject(
-					"http://ehu-catalog-service/api/element/emr-state/" + emr.getStateId(), Catalog.class);
-			emr.setStateName(catalog.getName());
-		return emr; 
+		return emrRepository.findEmrByHealthPlanIdAndPatientCode(healthPlanId, patientCode); 
 	}
 	
 	public Emr registerEmr(Emr emr){
 		return emrRepository.save(emr);
 	}
+	
+    public Emr updateToSecondEmrState(Integer healthPlanId, Integer patientCode, Emr emr) {
+		Emr result = null;
+    	Catalog[] list = restTemplate.getForObject(
+				"http://ehu-catalog-service/api/list/emr-state", Catalog[].class);
+    	Assert.notNull(list);
+    	if(emr.getStateId() == list[IndexOfFieldState.FIRST_STATE.getValue()].getSecondaryId()){
+    		emr.setStateId(list[IndexOfFieldState.SECOND_STATE.getValue()].getSecondaryId());
+    		result = this.emrRepository.save(emr);
+    	}
+    	return result;
+    }
 }

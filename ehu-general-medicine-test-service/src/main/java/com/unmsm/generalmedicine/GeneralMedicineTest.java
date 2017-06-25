@@ -17,14 +17,12 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.unmsm.symptom.Symptom;
 
 @Entity
 public class GeneralMedicineTest implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	@JsonIgnore
 	private Integer id;
 	private String employeeCode;
 	private Double weight;

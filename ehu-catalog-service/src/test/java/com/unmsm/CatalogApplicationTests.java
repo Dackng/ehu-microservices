@@ -43,7 +43,8 @@ public class CatalogApplicationTests {
 	@Test
 	@Ignore
 	public void findElementsListByPrimaryIdTest() {
-		List<Catalog> lista = catalogRepository.findElementsListByPrimaryId(PrimaryGroup.EAP.getValue());
+		List<Catalog> lista = catalogRepository.findElementsListByPrimaryId(PrimaryGroup.EAP.getValue()
+				, new Sort(Sort.Direction.ASC, FieldName.SECONDARY_ID.getValue()));
 		if (lista.isEmpty()) {
 			fail("Elements not found");
 		} else {
@@ -52,14 +53,7 @@ public class CatalogApplicationTests {
 			}
 		}
 	}
-
-	@Test
-	@Ignore
-	public void findTop1ByPrimaryIdTest() {
-		log.info(catalogRepository.findTop1ByPrimaryId(PrimaryGroup.EMR_STATE.getValue(),
-				new Sort(Sort.Direction.ASC, FieldName.SECONDARY_ID.getValue())).toString());
-	}
-
+	
 	@Test
 	public void findCurrentHealthPlanTest() {
 		log.info(catalogRepository.findElementByPrimaryIdAndState(PrimaryGroup.HEALTH_PLAN.getValue(),

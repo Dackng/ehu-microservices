@@ -6,12 +6,12 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.unmsm.catalog.Catalog;
+import com.unmsm.catalog.IndexOfFieldState;
 import com.unmsm.catalog.PrimaryGroup;
 
 @RestController
@@ -25,14 +25,6 @@ public class CatalogController {
 		this.catalogService = catalogService; 
 	}
 	
-	@RequestMapping(path = "/element/civil-state/{secondaryId}", method = RequestMethod.GET, name = "findCivilStateBySecondaryId")
-	public ResponseEntity<Catalog> findCivilStateBySecondaryId(
-			@PathVariable("secondaryId") Integer secondaryId){
-		return Optional.ofNullable(catalogService.findElementByPrimaryIdAndSecondaryId(PrimaryGroup.CIVIL_STATE, secondaryId))
-				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
-				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
-	}
-	
 	@RequestMapping(path = "/list/civil-state", method = RequestMethod.GET, name = "getCivilStateList")
 	public ResponseEntity<List<Catalog>> getCivilStateList(){
 		return Optional.ofNullable(catalogService.getElementsListByPrimaryId(PrimaryGroup.CIVIL_STATE))
@@ -40,33 +32,17 @@ public class CatalogController {
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
 	
-	@RequestMapping(path = "/element/emr-state/{secondaryId}", method = RequestMethod.GET, name = "findEmrStateBySecondaryId")
-	public ResponseEntity<Catalog> findEmrStateBySecondaryId(
-			@PathVariable("secondaryId") Integer secondaryId){
-		return Optional.ofNullable(catalogService.findElementByPrimaryIdAndSecondaryId(PrimaryGroup.EMR_STATE, secondaryId))
-				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
-				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
-	}
-	
 	@RequestMapping(path = "/element/first-emr-state", method = RequestMethod.GET, name = "getFirstEmrState")
 	public ResponseEntity<Catalog> getFirstEmrState(){
-		return Optional.ofNullable(catalogService.getFirstElementOfPrimaryGroup(PrimaryGroup.EMR_STATE))
+		return Optional.ofNullable(catalogService.getElementOfPrimaryGroupByStateIndex(PrimaryGroup.EMR_STATE
+				, IndexOfFieldState.FIRST_STATE.getValue()))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
-	
 	
 	@RequestMapping(path = "/list/emr-state", method = RequestMethod.GET, name = "getEmrStateList")
 	public ResponseEntity<List<Catalog>> getEmrStateList(){
 		return Optional.ofNullable(catalogService.getElementsListByPrimaryId(PrimaryGroup.EMR_STATE))
-				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
-				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
-	}
-	
-	@RequestMapping(path = "/element/eap/{secondaryId}", method = RequestMethod.GET, name = "findEapBySecondaryId")
-	public ResponseEntity<Catalog> findEapBySecondaryId(
-			@PathVariable("secondaryId") Integer secondaryId){
-		return Optional.ofNullable(catalogService.findElementByPrimaryIdAndSecondaryId(PrimaryGroup.EAP, secondaryId))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}

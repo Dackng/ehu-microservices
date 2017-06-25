@@ -14,6 +14,7 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.WebIntegrationTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.util.Assert;
 
 import com.unmsm.generalmedicine.FieldValue;
 import com.unmsm.generalmedicine.GeneralMedicineTest;
@@ -53,7 +54,7 @@ public class GeneralMedicineTestApplicationTests {
 	public void existsByEmrHealthPlanIdAndEmrPatientCodeTest() {
 		Boolean exist = generalMedicineTestRepository
 				.validateExistenceByEmrHealthPlanIdAndEmrPatientCode(1, 12200221);
-		assert exist != null;
+		Assert.notNull(exist);
 		log.info(exist.toString());
 		log.info("success");
 	}
@@ -62,7 +63,7 @@ public class GeneralMedicineTestApplicationTests {
 	public void validateTestFinishedTest() {
 		Boolean validTest = generalMedicineTestRepository
 				.validateTestFinished(1, 12200221, FieldValue.FINISHED.getValue());
-		assert validTest != null;
+		Assert.notNull(validTest);
 		log.info(validTest.toString());
 		log.info("success");
 	}

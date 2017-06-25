@@ -11,14 +11,10 @@ import javax.persistence.PrePersist;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.unmsm.laboratory.FieldValue;
-
 @Entity
 public class LaboratoryTest implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
-	@JsonIgnore
 	private Long id;
 	private String employeeCode;
 	private Integer serologicalTestId;

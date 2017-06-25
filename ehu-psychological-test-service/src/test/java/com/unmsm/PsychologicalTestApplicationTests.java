@@ -10,6 +10,7 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.WebIntegrationTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.util.Assert;
 
 import com.unmsm.psychological.FieldValue;
 import com.unmsm.psychological.PsychologicalTest;
@@ -32,7 +33,7 @@ public class PsychologicalTestApplicationTests {
 		PsychologicalTest psychologicalTest = new PsychologicalTest();
 		psychologicalTest.setEmrPatientCode(12200221);
 		psychologicalTest.setEmrHealthPlanId(1);
-		assert psychologicalTestRepository.save(psychologicalTest) != null;
+		Assert.notNull(psychologicalTestRepository.save(psychologicalTest));
 		log.info("success");
 	}
 
@@ -40,7 +41,7 @@ public class PsychologicalTestApplicationTests {
 	public void findPsychologicalTestByEmrHealthPlanIdAndEmrPatientCodeTest() {
 		PsychologicalTest psychologicalTest = psychologicalTestRepository.findPsychologicalTestByEmrHealthPlanIdAndEmrPatientCode(1,
 				12200221);
-		assert psychologicalTest != null;
+		Assert.notNull(psychologicalTest);
 		log.info(psychologicalTest.toString());
 		log.info("success");
 	}
@@ -49,7 +50,7 @@ public class PsychologicalTestApplicationTests {
 	public void existsByEmrHealthPlanIdAndEmrPatientCodeTest() {
 		Boolean exist = psychologicalTestRepository
 				.validateExistenceByEmrHealthPlanIdAndEmrPatientCode(1, 12200221);
-		assert exist != null;
+		Assert.notNull(exist);
 		log.info(exist.toString());
 		log.info("success");
 	}
@@ -58,7 +59,7 @@ public class PsychologicalTestApplicationTests {
 	public void validateTestFinishedTest() {
 		Boolean validTest = psychologicalTestRepository
 				.validateTestFinished(1, 12200221, FieldValue.FINISHED.getValue());
-		assert validTest != null;
+		Assert.notNull(validTest);
 		log.info(validTest.toString());
 		log.info("success");
 	}

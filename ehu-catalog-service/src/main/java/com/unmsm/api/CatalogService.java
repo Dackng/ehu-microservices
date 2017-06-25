@@ -28,7 +28,8 @@ public class CatalogService {
 	}
 	
 	public List<Catalog> getElementsListByPrimaryId(PrimaryGroup primaryId){
-		return catalogRepository.findElementsListByPrimaryId(primaryId.getValue());
+		return catalogRepository.findElementsListByPrimaryId(primaryId.getValue()
+				,sortByIdAsc(FieldName.SECONDARY_ID.getValue()));
 	}
 	
 	public Catalog findCurrentHealthPlan(PrimaryGroup primaryId){
@@ -42,16 +43,10 @@ public class CatalogService {
 		return list;
 	}
 	
-	/**
-	 * This method will return a list of only one element where this element is the first
-	 * of primary group ordered asc
-	 * @param primaryId
-	 * @return
-	 */
-	public Catalog getFirstElementOfPrimaryGroup(PrimaryGroup primaryId){
-		List<Catalog> list = catalogRepository.findTop1ByPrimaryId(primaryId.getValue(), 
+	public Catalog getElementOfPrimaryGroupByStateIndex(PrimaryGroup primaryId, Integer stateIndex){
+		List<Catalog> list = catalogRepository.findElementsListByPrimaryId(primaryId.getValue(), 
 				sortByIdAsc(FieldName.SECONDARY_ID.getValue()));
-		return list != null ? list.get(0) : null; 
+		return list != null ? list.get(stateIndex) : null; 
 	}
 	
 	private Sort sortByIdAsc(String catalogNameField) {

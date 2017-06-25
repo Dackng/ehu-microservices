@@ -10,6 +10,7 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.WebIntegrationTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.util.Assert;
 
 import com.unmsm.laboratory.FieldValue;
 import com.unmsm.laboratory.LaboratoryTest;
@@ -32,7 +33,7 @@ public class LaboratoryTestApplicationTests {
 		LaboratoryTest laboratoryTest = new LaboratoryTest();
 		laboratoryTest.setEmrPatientCode(12200221);
 		laboratoryTest.setEmrHealthPlanId(1);
-		assert laboratoryTestRepository.save(laboratoryTest)!= null;
+		Assert.notNull(laboratoryTestRepository.save(laboratoryTest));
 		log.info("success");
 	}
 	
@@ -40,7 +41,7 @@ public class LaboratoryTestApplicationTests {
 	public void findLaboratoryTestByEmrHealthPlanIdAndEmrPatientCodeTest(){
 		LaboratoryTest laboratoryTest = laboratoryTestRepository.findLaboratoryTestByEmrHealthPlanIdAndEmrPatientCode
 				(1, 12200221);
-		assert laboratoryTest != null;
+		Assert.notNull(laboratoryTest);
 		log.info(laboratoryTest.toString());
 		log.info("success");
 	}
@@ -49,7 +50,7 @@ public class LaboratoryTestApplicationTests {
 	public void existsByEmrHealthPlanIdAndEmrPatientCodeTest() {
 		Boolean exist = laboratoryTestRepository
 				.validateExistenceByEmrHealthPlanIdAndEmrPatientCode(1, 12200221);
-		assert exist != null;
+		Assert.notNull(exist);
 		log.info(exist.toString());
 		log.info("success");
 	}
@@ -58,7 +59,7 @@ public class LaboratoryTestApplicationTests {
 	public void validateTestFinishedTest() {
 		Boolean validTest = laboratoryTestRepository
 				.validateTestFinished(1, 12200221, FieldValue.FINISHED.getValue());
-		assert validTest != null;
+		Assert.notNull(validTest);
 		log.info(validTest.toString());
 		log.info("success");
 	}
