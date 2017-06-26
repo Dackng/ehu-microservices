@@ -13,6 +13,7 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.unmsm.generalmedicine.GeneralMedicineTest;
 
 @Entity
@@ -24,6 +25,7 @@ public class Symptom implements Serializable{
 	private String typeName;
 	private Integer cieId;
 	private String cieName;
+	@JsonDeserialize(using=CustomerDateAndTimeDeserialize .class)
 	private Date appointment;
 	private String observation;
 	@JsonIgnore
