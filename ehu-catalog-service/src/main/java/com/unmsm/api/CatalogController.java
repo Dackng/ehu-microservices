@@ -102,4 +102,11 @@ public class CatalogController {
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
+	
+	@RequestMapping(path = "/list/psychological-diagnosis", method = RequestMethod.GET, name = "getPsychologicalDiagnosisTypeList")
+	public ResponseEntity<List<Catalog>> getPsychologicalDiagnosisTypeList(){
+		return Optional.ofNullable(catalogService.getElementsListByPrimaryId(PrimaryGroup.PSYCHOLOGICAL_DIAGNOSIS))
+				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
 }

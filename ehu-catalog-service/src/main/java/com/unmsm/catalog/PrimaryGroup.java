@@ -9,7 +9,8 @@ public enum PrimaryGroup {
 	CIE(6),
 	SEROLOGICAL_TEST(7),
 	BLOOD_TYPE(8),
-	RADIOLOGY_TYPE(9);
+	RADIOLOGY_TYPE(9),
+	PSYCHOLOGICAL_DIAGNOSIS(10);
 	private Integer value;
 	
 	private PrimaryGroup(Integer value){ 
