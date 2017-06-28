@@ -11,13 +11,10 @@ import javax.persistence.PrePersist;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 public class PsychologicalTest implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
-	@JsonIgnore
 	private Integer id;
 	private String employeeCode;
 	private Integer depressionResult;

@@ -8,17 +8,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.unmsm.ubigeo.Ubigeo;
 
 @Entity
 public class Patient implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	@JsonIgnore
 	private Long id;
 	private Integer code;
 	private String names;

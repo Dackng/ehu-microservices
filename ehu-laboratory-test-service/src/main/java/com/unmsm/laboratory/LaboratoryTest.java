@@ -15,7 +15,7 @@ import javax.persistence.TemporalType;
 public class LaboratoryTest implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
-	private Long id;
+	private Integer id;
 	private String employeeCode;
 	private Integer serologicalTestId;
 	private Double hemoglobin;
@@ -31,10 +31,10 @@ public class LaboratoryTest implements Serializable{
 
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getEmployeeCode() {
