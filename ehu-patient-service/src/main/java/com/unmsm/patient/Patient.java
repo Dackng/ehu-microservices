@@ -32,11 +32,14 @@ public class Patient implements Serializable {
 	
 	public Patient(){}
 	
-	public Patient(Integer code, String names, String paternalSurname, String maternalSurname){
+	public Patient(Integer code, String names, String paternalSurname, String maternalSurname
+			, Date birthDate, Character gender){
 		this.code = code;
 		this.names = names;
 		this.paternalSurname = paternalSurname;
 		this.maternalSurname = maternalSurname;
+		this.birthDate = birthDate; //this help to the medical test(laboratory) for validations
+		this.gender = gender; // this help to the medical test(psychological and laboratory) for validations
 	}
 	
 	@Id
