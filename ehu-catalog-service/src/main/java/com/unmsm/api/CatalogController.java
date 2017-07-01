@@ -109,4 +109,11 @@ public class CatalogController {
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
+	
+	@RequestMapping(path = "/list/hemoglobin-state", method = RequestMethod.GET, name = "getHemoglobinStateList")
+	public ResponseEntity<List<Catalog>> getHemoglobinStateList(){
+		return Optional.ofNullable(catalogService.getElementsListByPrimaryId(PrimaryGroup.HEMOGLOBIN_STATE))
+				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
 }
