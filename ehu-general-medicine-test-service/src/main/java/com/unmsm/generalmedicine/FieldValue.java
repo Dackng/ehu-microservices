@@ -1,7 +1,7 @@
 package com.unmsm.generalmedicine;
 
 public enum FieldValue {
-    FINISHED(true),
+	FINISHED(true),
     NOT_FINISH(false);
 	
 	private Boolean value;

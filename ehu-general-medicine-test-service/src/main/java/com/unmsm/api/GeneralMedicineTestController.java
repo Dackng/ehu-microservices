@@ -1,5 +1,6 @@
 package com.unmsm.api;
 
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,9 +47,9 @@ public class GeneralMedicineTestController {
 	}
 	
 	@RequestMapping(path = "/get-state/{emrHealthPlanId}/{emrPatientCode}", method = RequestMethod.GET, name = "getTestStateByEmrHealthPlanIdAndEmrPatientCode")
-	public ResponseEntity<Boolean> getTestStateByEmrHealthPlanIdAndEmrPatientCode(
+	public ResponseEntity<Map<String,Object>> getTestStateByEmrHealthPlanIdAndEmrPatientCode(
 			@PathVariable("emrHealthPlanId") Integer emrHealthPlanId,
-			@PathVariable("emrPatientCode") Integer emrPatientCode) {
+			@PathVariable("emrPatientCode") Integer emrPatientCode){
 		return Optional
 				.ofNullable(generalMedicineTestService
 						.getTestStateByEmrHealthPlanIdAndEmrPatientCode(emrHealthPlanId, emrPatientCode))
