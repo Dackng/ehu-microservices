@@ -25,15 +25,12 @@ public class LaboratoryTestService {
 		return laboratoryTestRepository.findLaboratoryTestByEmrHealthPlanIdAndEmrPatientCode(emrHealthPlanId, emrPatientCode);
 	}
 	
-	public Boolean validateTestExistenceByEmrHealthPlanIdAndEmrPatientCode(Integer emrHealthPlanId,
-			Integer emrPatientCode) {
-		return laboratoryTestRepository.validateExistenceByEmrHealthPlanIdAndEmrPatientCode(emrHealthPlanId,
-				emrPatientCode);
-	}
-	
 	public Boolean getTestStateByEmrHealthPlanIdAndEmrPatientCode(Integer emrHealthPlanId,
 			Integer emrPatientCode) {
-		return laboratoryTestRepository.validateTestFinished(emrHealthPlanId,
-				emrPatientCode, FieldValue.FINISHED.getValue());
+		if(laboratoryTestRepository.validateExistenceByEmrHealthPlanIdAndEmrPatientCode(emrHealthPlanId, emrPatientCode)){
+			return laboratoryTestRepository.validateTestFinished(emrHealthPlanId,
+					emrPatientCode, FieldValue.FINISHED.getValue());
+		}
+		return null;
 	}
 }

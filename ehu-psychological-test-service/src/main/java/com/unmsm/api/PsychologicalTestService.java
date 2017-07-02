@@ -33,7 +33,10 @@ public class PsychologicalTestService {
 	
 	public Boolean getTestStateByEmrHealthPlanIdAndEmrPatientCode(Integer emrHealthPlanId,
 			Integer emrPatientCode) {
-		return psychologicalTestRepository.validateTestFinished(emrHealthPlanId,
-				emrPatientCode, FieldValue.FINISHED.getValue());
+		if(psychologicalTestRepository.validateExistenceByEmrHealthPlanIdAndEmrPatientCode(emrHealthPlanId, emrPatientCode)){
+			return psychologicalTestRepository.validateTestFinished(emrHealthPlanId,
+					emrPatientCode, FieldValue.FINISHED.getValue());
+		}
+		return null;
 	}
 }

@@ -45,15 +45,12 @@ public class GeneralMedicineTestService {
 				emrPatientCode);
 	}
 	
-	public Boolean validateTestExistenceByEmrHealthPlanIdAndEmrPatientCode(Integer emrHealthPlanId,
-			Integer emrPatientCode) {
-		return generalMedicineTestRepository.validateExistenceByEmrHealthPlanIdAndEmrPatientCode(emrHealthPlanId,
-				emrPatientCode);
-	}
-	
 	public Boolean getTestStateByEmrHealthPlanIdAndEmrPatientCode(Integer emrHealthPlanId,
 			Integer emrPatientCode) {
-		return generalMedicineTestRepository.validateTestFinished(emrHealthPlanId,
-				emrPatientCode, FieldValue.FINISHED.getValue());
+		if(generalMedicineTestRepository.validateExistenceByEmrHealthPlanIdAndEmrPatientCode(emrHealthPlanId, emrPatientCode)){
+			return generalMedicineTestRepository.validateTestFinished(emrHealthPlanId,
+					emrPatientCode, FieldValue.FINISHED.getValue());
+		}
+		return null;
 	}
 }

@@ -25,15 +25,12 @@ public class RadiologyTestService {
 		return radiologyTestRepository.findRadiologyTestByEmrHealthPlanIdAndEmrPatientCode(emrHealthPlanId, emrPatientCode);
 	}
 	
-	public Boolean validateTestExistenceByEmrHealthPlanIdAndEmrPatientCode(Integer emrHealthPlanId,
-			Integer emrPatientCode) {
-		return radiologyTestRepository.validateExistenceByEmrHealthPlanIdAndEmrPatientCode(emrHealthPlanId,
-				emrPatientCode);
-	}
-	
 	public Boolean getTestStateByEmrHealthPlanIdAndEmrPatientCode(Integer emrHealthPlanId,
 			Integer emrPatientCode) {
-		return radiologyTestRepository.validateTestFinished(emrHealthPlanId,
-				emrPatientCode, FieldValue.FINISHED.getValue());
+		if(radiologyTestRepository.validateExistenceByEmrHealthPlanIdAndEmrPatientCode(emrHealthPlanId, emrPatientCode)){
+			return radiologyTestRepository.validateTestFinished(emrHealthPlanId,
+					emrPatientCode, FieldValue.FINISHED.getValue());
+		}
+		return null;
 	}
 }
