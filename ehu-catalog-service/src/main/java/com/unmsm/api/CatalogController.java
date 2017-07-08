@@ -116,4 +116,18 @@ public class CatalogController {
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
+	
+	@RequestMapping(path = "/list/depression-state", method = RequestMethod.GET, name = "getDepressionStateList")
+	public ResponseEntity<List<Catalog>> getDepressionStateList(){
+		return Optional.ofNullable(catalogService.getElementsListByPrimaryId(PrimaryGroup.DEPRESSION_STATE))
+				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
+	
+	@RequestMapping(path = "/list/anxiety-state", method = RequestMethod.GET, name = "getAnxietyStateList")
+	public ResponseEntity<List<Catalog>> getAnxietyStateList(){
+		return Optional.ofNullable(catalogService.getElementsListByPrimaryId(PrimaryGroup.ANXIETY_STATE))
+				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
 }

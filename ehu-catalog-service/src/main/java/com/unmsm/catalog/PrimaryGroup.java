@@ -11,7 +11,9 @@ public enum PrimaryGroup {
 	BLOOD_TYPE(8),
 	RADIOLOGY_TYPE(9),
 	PSYCHOLOGICAL_DIAGNOSIS(10),
-	HEMOGLOBIN_STATE(11);
+	HEMOGLOBIN_STATE(11),
+	DEPRESSION_STATE(12),
+	ANXIETY_STATE(13);
 	private Integer value;
 	
 	private PrimaryGroup(Integer value){ 
