@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.PrePersist;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -98,11 +97,6 @@ public class LaboratoryTest implements Serializable{
 	public void setEmrPatientCode(Integer emrPatientCode) {
 		this.emrPatientCode = emrPatientCode;
 	}
-	@PrePersist
-	protected void onCreate() {
-		isFinished = FieldValue.NOT_FINISH.getValue();
-	}
-
 	@Override
 	public String toString() {
 		return "LaboratoryTest [id=" + id + ", employeeCode=" + employeeCode + ", serologicalTestId="

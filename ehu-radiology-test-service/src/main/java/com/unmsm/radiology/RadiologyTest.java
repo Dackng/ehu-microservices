@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.PrePersist;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -76,10 +75,6 @@ public class RadiologyTest implements Serializable{
 	}
 	public void setEmrHealthPlanId(Integer emrHealthPlanId) {
 		this.emrHealthPlanId = emrHealthPlanId;
-	}
-	@PrePersist
-	protected void onCreate() {
-		isFinished = FieldValue.NOT_FINISH.getValue();
 	}
 	@Override
 	public String toString() {

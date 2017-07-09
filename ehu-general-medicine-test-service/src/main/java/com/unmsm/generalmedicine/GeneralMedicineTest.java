@@ -12,7 +12,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -136,10 +135,6 @@ public class GeneralMedicineTest implements Serializable{
 	}
 	public void setSymptoms(Set<Symptom> symptoms) {
 		this.symptoms = symptoms;
-	}
-	@PrePersist
-	protected void onCreate() {
-		isFinished = FieldValue.NOT_FINISH.getValue();
 	}
 	@PreUpdate
 	protected void onUpdate() {
