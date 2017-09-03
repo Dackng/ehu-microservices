@@ -1,0 +1,45 @@
+spring:
+  profiles:
+    active: test
+
+---
+server:
+  port: 8021
+spring:
+  profiles: development
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      uri: mongodb://localhost/phrdb
+  jackson:
+    date-format: "YYYY-MM-dd"
+    serialization:
+      write_dates_as_timestamps: true
+security:
+  user:
+    password: ${eureka.password}
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: ${EUREKA_URL:http://user:password@localhost:5000}/eureka/
+  instance:
+    hostname: ${DOMAIN_NAME}
+    nonSecurePort: 80
+  password:  ${USER_PASSWORD:password}
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 60000
+
+---
+spring:
+  profiles: test
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      uri: mongodb://localhost/phrdb
+  jackson:
+    date-format: "YYYY-MM-dd"
+    serialization:
+      write_dates_as_timestamps: true
