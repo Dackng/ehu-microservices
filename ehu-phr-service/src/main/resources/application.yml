@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: test
+    active: development
 
 ---
 server:
@@ -16,20 +16,14 @@ spring:
     date-format: "YYYY-MM-dd"
     serialization:
       write_dates_as_timestamps: true
-security:
-  user:
-    password: ${eureka.password}
 eureka:
+  instance:
+    prefer-ip-address: true
   client:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: ${EUREKA_URL:http://user:password@localhost:5000}/eureka/
-  instance:
-    hostname: ${DOMAIN_NAME}
-    nonSecurePort: 80
-  password:  ${USER_PASSWORD:password}
-hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 60000
+      defaultZone: http://localhost:8010/eureka/
 
 ---
 spring:

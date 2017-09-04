@@ -13,6 +13,7 @@ import org.springframework.boot.test.WebIntegrationTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.unmsm.api.PhrService;
 import com.unmsm.phr.Emr;
 import com.unmsm.phr.Patient;
 import com.unmsm.phr.Phr;
@@ -30,6 +31,9 @@ public class PhrApplicationTests {
 	@Autowired
 	PhrRepository phrRepository;
 	
+	@Autowired
+	PhrService phrService;
+	
 	@Test
 	@Ignore
 	public void registerPhrTest() {
@@ -42,13 +46,23 @@ public class PhrApplicationTests {
 		Emr emr = new Emr("2017-001", "FINALIZADO", new Date(), new Date()
 				, "PLAN 2017-I", "OBSERVADO", "NEGATIVO", "NO REACTIVO", "A Rh(+)");
 		phr.getEmrList().add(emr);
-		log.info("Inserting: "+ phr);
+		log.info("Registering: "+ phr);
 		phrRepository.save(phr);
 		log.info("success");
 	}
 	
 	@Test
+	@Ignore
 	public void findPhrByPatientCodeTest(){
 		log.info("Getting: " + phrRepository.findByPatientCode(12345678));
+	}
+	
+	@Test
+	public void registerEmrTest(){
+		Emr emr = new Emr("2017-230", "FINALIZADO", new Date(), new Date()
+				, "PLAN 2017-II", "NORMAL", "POSITIVO", "REACTIVO", "B Rh(+)");
+		log.info("Registering EMR: " + emr);
+		Phr phr = phrService.registerEmr(12345678, emr);
+		log.info("success: "+phr);
 	}
 }
