@@ -1,6 +1,32 @@
 spring:
   profiles:
-    active: development
+    active: heroku
+
+---
+spring:
+  profiles: heroku
+  data:
+    mongodb:
+      uri: ${DATABASE_URL}
+  jackson:
+    date-format: "YYYY-MM-dd"
+    serialization:
+      write_dates_as_timestamps: true
+
+security:
+  user:
+    password: ${eureka.password}
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: ${EUREKA_URL:http://user:password@localhost:5000}/eureka/
+  instance:
+    hostname: ${DOMAIN_NAME}
+    nonSecurePort: 80
+  password:  ${USER_PASSWORD:password}
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 60000
 
 ---
 server:
@@ -24,7 +50,6 @@ eureka:
     fetchRegistry: true
     serviceUrl:
       defaultZone: http://localhost:8010/eureka/
-
 ---
 spring:
   profiles: test
