@@ -3,7 +3,7 @@ package com.unmsm.phr;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Emr implements Serializable{
+public class EmrSummary implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	private String code;
@@ -18,9 +18,9 @@ public class Emr implements Serializable{
 	private String hemoglobin;
 	private String bloodCount;
 	
-	public Emr(){}
+	public EmrSummary(){}
 	
-	public Emr(String code, String state, Date createAt, Date updateAt, String healthPlan
+	public EmrSummary(String code, String state, Date createAt, Date updateAt, String healthPlan
 			, String psychologicalResult, String radiologyResult, String serologicalResult, String bloodType){
 		this.code = code;
 		this.state = state;

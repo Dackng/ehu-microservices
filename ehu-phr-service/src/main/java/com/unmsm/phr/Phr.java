@@ -13,7 +13,7 @@ public class Phr {
 	@Id
 	private ObjectId phrId;
 	private Patient patient;
-	private List<Emr> emrList;
+	private List<EmrSummary> emrList;
 	
 	public Phr(){
 		emrList = new ArrayList<>();
@@ -31,10 +31,10 @@ public class Phr {
 	public void setPatient(Patient patient) {
 		this.patient = patient;
 	}
-	public List<Emr> getEmrList() {
+	public List<EmrSummary> getEmrList() {
 		return emrList;
 	}
-	public void setEmrList(List<Emr> emrList) {
+	public void setEmrList(List<EmrSummary> emrList) {
 		this.emrList = emrList;
 	}
 

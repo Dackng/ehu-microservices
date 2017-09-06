@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
-import com.unmsm.phr.Emr;
+import com.unmsm.phr.EmrSummary;
 import com.unmsm.phr.Phr;
 import com.unmsm.phr.PhrRepository;
 
@@ -26,7 +26,7 @@ public class PhrService {
 		return phrRepository.save(phr);
 	}
 	
-	public Phr registerEmr(Integer patientCode, Emr emr){
+	public Phr registerEmrSummary(Integer patientCode, EmrSummary emr){
 		Phr phr = phrRepository.findByPatientCode(patientCode);
 		Assert.notNull(phr);
 		phr.getEmrList().add(emr);

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.unmsm.phr.Emr;
+import com.unmsm.phr.EmrSummary;
 import com.unmsm.phr.Phr;
 
 @RestController
@@ -43,10 +43,10 @@ public class PhrController {
 	}
 	
 	@RequestMapping(path = "/register/emr/{patientCode}", method = RequestMethod.PUT)
-	public ResponseEntity<Phr> registerEmr(@PathVariable("patientCode") Integer patientCode
-			, @RequestBody Emr emr)throws Exception{
-		Assert.notNull(emr);
-		return Optional.ofNullable(phrService.registerEmr(patientCode, emr))
+	public ResponseEntity<Phr> registerEmrSummary(@PathVariable("patientCode") Integer patientCode
+			, @RequestBody EmrSummary emrSummary)throws Exception{
+		Assert.notNull(emrSummary);
+		return Optional.ofNullable(phrService.registerEmrSummary(patientCode, emrSummary))
                 .map(result -> new ResponseEntity<Phr>(HttpStatus.NO_CONTENT))
                 .orElse(new ResponseEntity<Phr>(HttpStatus.NOT_FOUND));
 	}

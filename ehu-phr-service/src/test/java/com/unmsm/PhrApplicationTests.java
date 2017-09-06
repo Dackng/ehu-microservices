@@ -14,7 +14,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.unmsm.api.PhrService;
-import com.unmsm.phr.Emr;
+import com.unmsm.phr.EmrSummary;
 import com.unmsm.phr.Patient;
 import com.unmsm.phr.Phr;
 import com.unmsm.phr.PhrRepository;
@@ -43,7 +43,7 @@ public class PhrApplicationTests {
 				, "prueba@mail.com", "ING. SOFTWARE", new Date(), 5504444, "MASCULINO"
 				, "AV. ALFA", ubigeo);
 		phr.setPatient(patient);
-		Emr emr = new Emr("2017-001", "FINALIZADO", new Date(), new Date()
+		EmrSummary emr = new EmrSummary("2017-001", "FINALIZADO", new Date(), new Date()
 				, "PLAN 2017-I", "OBSERVADO", "NEGATIVO", "NO REACTIVO", "A Rh(+)");
 		phr.getEmrList().add(emr);
 		log.info("Registering: "+ phr);
@@ -59,10 +59,10 @@ public class PhrApplicationTests {
 	
 	@Test
 	public void registerEmrTest(){
-		Emr emr = new Emr("2017-230", "FINALIZADO", new Date(), new Date()
+		EmrSummary emrSummary = new EmrSummary("2017-230", "FINALIZADO", new Date(), new Date()
 				, "PLAN 2017-II", "NORMAL", "POSITIVO", "REACTIVO", "B Rh(+)");
-		log.info("Registering EMR: " + emr);
-		Phr phr = phrService.registerEmr(12345678, emr);
+		log.info("Registering EMR: " + emrSummary);
+		Phr phr = phrService.registerEmrSummary(12345678, emrSummary);
 		log.info("success: "+phr);
 	}
 }
