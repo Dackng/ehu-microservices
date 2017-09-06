@@ -46,7 +46,7 @@ public class EmrController {
 		(@RequestBody Emr emr, @PathVariable("healthPlanId") Integer healthPlanId
 		, @PathVariable("patientCode") Integer patientCode)throws Exception{
 		Assert.notNull(emr);
-		return Optional.ofNullable(emrService.updateToSecondEmrState(healthPlanId, patientCode, emr))
+		return Optional.ofNullable(emrService.updateEmrState(healthPlanId, patientCode, emr))
                 .map(result -> new ResponseEntity<Emr>(HttpStatus.NO_CONTENT))
                 .orElse(new ResponseEntity<Emr>(HttpStatus.NOT_FOUND));
 	}
