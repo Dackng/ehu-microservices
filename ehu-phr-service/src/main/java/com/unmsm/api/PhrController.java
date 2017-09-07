@@ -42,7 +42,7 @@ public class PhrController {
 				.orElseThrow(() -> new Exception("Could not save phr"));
 	}
 	
-	@RequestMapping(path = "/register/emr/{patientCode}", method = RequestMethod.PUT)
+	@RequestMapping(path = "/register/emr-summary/{patientCode}", method = RequestMethod.PUT)
 	public ResponseEntity<Phr> registerEmrSummary(@PathVariable("patientCode") Integer patientCode
 			, @RequestBody EmrSummary emrSummary)throws Exception{
 		Assert.notNull(emrSummary);
