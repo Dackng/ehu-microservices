@@ -99,6 +99,15 @@ public class EmrSummary implements Serializable{
 	public void setBloodCount(String bloodcount) {
 		this.bloodCount = bloodcount;
 	}
+	public void setFields(EmrSummary emrSummary){
+		this.state = emrSummary.getState();
+		this.psychologicalResult = emrSummary.getPsychologicalResult();
+		this.radiologyResult = emrSummary.getRadiologyResult();
+		this.serologicalResult = emrSummary.getSerologicalResult();
+		this.bloodType = emrSummary.getBloodType();
+		this.hemoglobin = emrSummary.getHemoglobin();
+		this.bloodCount = emrSummary.getBloodCount();
+	}
 
 	@Override
 	public String toString() {

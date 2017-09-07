@@ -37,9 +37,13 @@ public class Phr {
 	public void setEmrList(List<EmrSummary> emrList) {
 		this.emrList = emrList;
 	}
-
+	public EmrSummary getEmrSummary(int index) {
+		return this.getEmrList().get(index);
+	}
+	
 	@Override
 	public String toString() {
 		return "Phr [phrId=" + phrId + ", patientSummary=" + patientSummary + ", emrList=" + emrList + "]";
-	} 
+	}
+
 }

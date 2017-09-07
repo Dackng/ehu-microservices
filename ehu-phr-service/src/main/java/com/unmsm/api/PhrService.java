@@ -26,10 +26,19 @@ public class PhrService {
 		return phrRepository.save(phr);
 	}
 	
-	public Phr registerEmrSummary(Integer patientCode, EmrSummary emr){
+	public Phr registerEmrSummary(Integer patientCode, EmrSummary emrSummary){
 		Phr phr = phrRepository.findByPatientCode(patientCode);
 		Assert.notNull(phr);
-		phr.getEmrList().add(emr);
+		Assert.notNull(emrSummary);
+		phr.getEmrList().add(emrSummary);
+		return phrRepository.save(phr);
+	}
+	
+	public Phr updateEmrSummary(Integer patientCode, EmrSummary emrSummary){
+		Phr phr = phrRepository.findByPatientCode(patientCode);
+		Assert.notNull(phr);
+		Assert.notNull(emrSummary);
+		phr.getEmrSummary(phr.getEmrList().indexOf(emrSummary)).setFields(emrSummary);
 		return phrRepository.save(phr);
 	}
 }

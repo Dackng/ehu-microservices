@@ -50,4 +50,13 @@ public class PhrController {
                 .map(result -> new ResponseEntity<Phr>(HttpStatus.NO_CONTENT))
                 .orElse(new ResponseEntity<Phr>(HttpStatus.NOT_FOUND));
 	}
+	
+	@RequestMapping(path = "/update/emr-summary/{patientCode}", method = RequestMethod.PUT)
+	public ResponseEntity<Phr> updateEmrSummary(@PathVariable("patientCode") Integer patientCode
+			, @RequestBody EmrSummary emrSummary)throws Exception{
+		Assert.notNull(emrSummary);
+		return Optional.ofNullable(phrService.updateEmrSummary(patientCode, emrSummary))
+                .map(result -> new ResponseEntity<Phr>(HttpStatus.NO_CONTENT))
+                .orElse(new ResponseEntity<Phr>(HttpStatus.NOT_FOUND));
+	}
 }
