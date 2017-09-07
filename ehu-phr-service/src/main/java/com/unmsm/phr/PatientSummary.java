@@ -3,7 +3,7 @@ package com.unmsm.phr;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Patient implements Serializable{
+public class PatientSummary implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	private Integer code;
@@ -19,9 +19,9 @@ public class Patient implements Serializable{
 	private String address;
 	private Ubigeo ubigeo;
 	
-	public Patient(){}
+	public PatientSummary(){}
 	
-	public Patient(Integer code, String names, String paternalSurname, String maternalSurname,
+	public PatientSummary(Integer code, String names, String paternalSurname, String maternalSurname,
 			String civilState, String email, String  eap, Date birthDate, Integer telephone, String gender,
 			String address, Ubigeo ubigeo){
 		this.code = code;

@@ -12,7 +12,7 @@ public class Phr {
 	
 	@Id
 	private ObjectId phrId;
-	private Patient patient;
+	private PatientSummary patientSummary;
 	private List<EmrSummary> emrList;
 	
 	public Phr(){
@@ -25,11 +25,11 @@ public class Phr {
 	public void setPhrId(ObjectId phrId) {
 		this.phrId = phrId;
 	}
-	public Patient getPatient() {
-		return patient;
+	public PatientSummary getPatientSummary() {
+		return patientSummary;
 	}
-	public void setPatient(Patient patient) {
-		this.patient = patient;
+	public void setPatientSummary(PatientSummary patientSummary) {
+		this.patientSummary = patientSummary;
 	}
 	public List<EmrSummary> getEmrList() {
 		return emrList;
@@ -40,6 +40,6 @@ public class Phr {
 
 	@Override
 	public String toString() {
-		return "Phr [phrId=" + phrId + ", patient=" + patient + ", emrList=" + emrList + "]";
+		return "Phr [phrId=" + phrId + ", patientSummary=" + patientSummary + ", emrList=" + emrList + "]";
 	} 
 }

@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.unmsm.api.PhrService;
 import com.unmsm.phr.EmrSummary;
-import com.unmsm.phr.Patient;
+import com.unmsm.phr.PatientSummary;
 import com.unmsm.phr.Phr;
 import com.unmsm.phr.PhrRepository;
 import com.unmsm.phr.Ubigeo;
@@ -39,13 +39,13 @@ public class PhrApplicationTests {
 	public void registerPhrTest() {
 		Phr phr = new Phr();
 		Ubigeo ubigeo = new Ubigeo("010101", "LIMA", "LIMA", "LOS OLIVOS");
-		Patient patient = new Patient(12345678, "DIEGO", "CAYO", "ALCOS","SOLTERO"
+		PatientSummary patientSummary = new PatientSummary(12345678, "DIEGO", "CAYO", "ALCOS","SOLTERO"
 				, "prueba@mail.com", "ING. SOFTWARE", new Date(), 5504444, "MASCULINO"
 				, "AV. ALFA", ubigeo);
-		phr.setPatient(patient);
-		EmrSummary emr = new EmrSummary("2017-001", "FINALIZADO", new Date(), new Date()
+		phr.setPatientSummary(patientSummary);
+		EmrSummary emrSummary = new EmrSummary("2017-001", "FINALIZADO", new Date(), new Date()
 				, "PLAN 2017-I", "OBSERVADO", "NEGATIVO", "NO REACTIVO", "A Rh(+)");
-		phr.getEmrList().add(emr);
+		phr.getEmrList().add(emrSummary);
 		log.info("Registering: "+ phr);
 		phrRepository.save(phr);
 		log.info("success");
@@ -58,10 +58,10 @@ public class PhrApplicationTests {
 	}
 	
 	@Test
-	public void registerEmrTest(){
+	public void registerEmrSummaryTest(){
 		EmrSummary emrSummary = new EmrSummary("2017-230", "FINALIZADO", new Date(), new Date()
 				, "PLAN 2017-II", "NORMAL", "POSITIVO", "REACTIVO", "B Rh(+)");
-		log.info("Registering EMR: " + emrSummary);
+		log.info("Registering EMR SUMMARY: " + emrSummary);
 		Phr phr = phrService.registerEmrSummary(12345678, emrSummary);
 		log.info("success: "+phr);
 	}
