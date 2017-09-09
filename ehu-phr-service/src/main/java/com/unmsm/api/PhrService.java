@@ -30,7 +30,7 @@ public class PhrService {
 		Phr phr = phrRepository.findByPatientCode(patientCode);
 		Assert.notNull(phr);
 		Assert.notNull(emrSummary);
-		phr.getEmrList().add(emrSummary);
+		phr.getEmrSummaryList().add(emrSummary);
 		return phrRepository.save(phr);
 	}
 	
@@ -38,7 +38,7 @@ public class PhrService {
 		Phr phr = phrRepository.findByPatientCode(patientCode);
 		Assert.notNull(phr);
 		Assert.notNull(emrSummary);
-		phr.getEmrSummary(phr.getEmrList().indexOf(emrSummary)).setFields(emrSummary);
+		phr.getEmrSummary(phr.getEmrSummaryList().indexOf(emrSummary)).setFields(emrSummary);
 		return phrRepository.save(phr);
 	}
 }

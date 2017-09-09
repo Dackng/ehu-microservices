@@ -13,10 +13,10 @@ public class Phr {
 	@Id
 	private ObjectId phrId;
 	private PatientSummary patientSummary;
-	private List<EmrSummary> emrList;
+	private List<EmrSummary> emrSummaryList;
 	
 	public Phr(){
-		emrList = new ArrayList<>();
+		emrSummaryList = new ArrayList<>();
 	}
 	
 	public String getPhrId() {
@@ -31,19 +31,19 @@ public class Phr {
 	public void setPatientSummary(PatientSummary patientSummary) {
 		this.patientSummary = patientSummary;
 	}
-	public List<EmrSummary> getEmrList() {
-		return emrList;
+	public List<EmrSummary> getEmrSummaryList() {
+		return emrSummaryList;
 	}
-	public void setEmrList(List<EmrSummary> emrList) {
-		this.emrList = emrList;
+	public void setEmrSummaryList(List<EmrSummary> emrSummaryList) {
+		this.emrSummaryList = emrSummaryList;
 	}
 	public EmrSummary getEmrSummary(int index) {
-		return this.getEmrList().get(index);
+		return this.getEmrSummaryList().get(index);
 	}
 	
 	@Override
 	public String toString() {
-		return "Phr [phrId=" + phrId + ", patientSummary=" + patientSummary + ", emrList=" + emrList + "]";
+		return "Phr [phrId=" + phrId + ", patientSummary=" + patientSummary + ", emrSummaryList=" + emrSummaryList + "]";
 	}
 
 }

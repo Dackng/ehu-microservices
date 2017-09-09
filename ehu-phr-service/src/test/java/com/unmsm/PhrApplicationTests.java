@@ -45,7 +45,7 @@ public class PhrApplicationTests {
 		phr.setPatientSummary(patientSummary);
 		EmrSummary emrSummary = new EmrSummary("2017-001", "FINALIZADO", new Date(), new Date()
 				, "PLAN 2017-I", "OBSERVADO", "NEGATIVO", "NO REACTIVO", "A Rh(+)");
-		phr.getEmrList().add(emrSummary);
+		phr.getEmrSummaryList().add(emrSummary);
 		log.info("Registering: "+ phr);
 		phrRepository.save(phr);
 		log.info("success");
