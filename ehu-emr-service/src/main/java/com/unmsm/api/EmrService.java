@@ -33,7 +33,7 @@ public class EmrService{
 		return emrRepository.save(emr);
 	}
 	
-    public Emr updateEmrState(Integer healthPlanId, Integer patientCode, Emr emr) {
+    public Emr validateEmrStateUpdated(Integer healthPlanId, Integer patientCode, Emr emr) {
 		Emr result = null;
     	Catalog[] list = restTemplate.getForObject(
 				"http://ehu-catalog-service/api/list/emr-state", Catalog[].class);
