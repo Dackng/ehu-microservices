@@ -35,11 +35,14 @@ public class GeneralMedicineTestService {
 			}
 		}};
 		generalMedicineTest.setSymptoms(symptoms);
-		return (GeneralMedicineTest) generalMedicineTestRepository.save(new HashSet<GeneralMedicineTest>(){
+		generalMedicineTestRepository.save(new HashSet<GeneralMedicineTest>(){
 			private static final long serialVersionUID = 1L;
 		{
 			add(generalMedicineTest);
 		}});
+		return generalMedicineTestRepository.
+				findGeneralMedicineTestByEmrHealthPlanIdAndEmrPatientCode
+				(generalMedicineTest.getEmrHealthPlanId(), generalMedicineTest.getEmrPatientCode());
 	}
 
 	public GeneralMedicineTest findGeneralMedicineTestByEmrHealthPlanIdAndEmrPatientCode(Integer emrHealthPlanId,
