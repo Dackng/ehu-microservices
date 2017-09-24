@@ -1,5 +1,6 @@
 package com.unmsm.api;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.unmsm.emr.Emr;
+import com.unmsm.medicaltest.MedicalTest;
 
 @RestController
 @RequestMapping(path = "/api")
@@ -35,20 +37,27 @@ public class EmrController {
 	}
 	
 	@RequestMapping(path = "/find/{healthPlanId}/{patientCode}", method = RequestMethod.GET, name = "findEmrByHealthPlanIdAndPatientCode")
-	public ResponseEntity<Emr> findEmrByHealthPlanIdAndPatientCode(@PathVariable("healthPlanId") Integer healthPlanId, @PathVariable("patientCode") Integer patientCode){
+	public ResponseEntity<Emr> findEmrByHealthPlanIdAndPatientCode(@PathVariable("healthPlanId") Integer healthPlanId
+			, @PathVariable("patientCode") Integer patientCode){
 		return Optional.ofNullable(emrService.findEmrByHealthPlanIdAndPatientCode(healthPlanId, patientCode))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
 	
-	@RequestMapping(path = "/validate-current-state/{healthPlanId}/{patientCode}", method = RequestMethod.PUT)
+	@RequestMapping(path = "/validate-current-state/{testTypeId}", method = RequestMethod.PUT)
 	public ResponseEntity<Emr> validateEmrStateUpdated
-		(@RequestBody Emr emr, @PathVariable("healthPlanId") Integer healthPlanId
-		, @PathVariable("patientCode") Integer patientCode)throws Exception{
+		(@PathVariable("testTypeId") Integer testTypeId, @RequestBody Emr emr)throws Exception{
 		Assert.notNull(emr);
-		return Optional.ofNullable(emrService.validateEmrStateUpdated(healthPlanId, patientCode, emr))
-                .map(result -> new ResponseEntity<Emr>(HttpStatus.NO_CONTENT))
+		return Optional.ofNullable(emrService.validateEmrStateUpdated(emr, testTypeId))
+                .map(result -> new ResponseEntity<Emr>(result, HttpStatus.OK))
                 .orElse(new ResponseEntity<Emr>(HttpStatus.NOT_FOUND));
 	}
 
+	@RequestMapping(path = "/list/medical-test/{healthPlanId}/{patientCode}/{testTypeId}", method = RequestMethod.GET, name = "findMedicalTestsByType")
+	public ResponseEntity<List<MedicalTest>> findMedicalTestsByType(@PathVariable("healthPlanId") Integer healthPlanId
+			, @PathVariable("patientCode") Integer patientCode, @PathVariable("testTypeId") Integer testTypeId){
+		return Optional.ofNullable(emrService.findMedicalTestsByType(healthPlanId, patientCode, testTypeId))
+				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
 }

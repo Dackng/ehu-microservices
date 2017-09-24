@@ -38,7 +38,7 @@ public class PhrApplicationTests {
 	@Ignore
 	public void registerPhrTest() {
 		Phr phr = new Phr();
-		Ubigeo ubigeo = new Ubigeo("010101", "LIMA", "LIMA", "LOS OLIVOS");
+		Ubigeo ubigeo = new Ubigeo("LIMA", "LIMA", "LOS OLIVOS");
 		PatientSummary patientSummary = new PatientSummary(12345678, "DIEGO", "CAYO", "ALCOS","SOLTERO"
 				, "prueba@mail.com", "ING. SOFTWARE", new Date(), 5504444, "MASCULINO"
 				, "AV. ALFA", ubigeo);

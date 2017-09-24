@@ -100,13 +100,14 @@ public class EmrSummary implements Serializable{
 		this.bloodCount = bloodcount;
 	}
 	public void setFields(EmrSummary emrSummary){
-		this.state = emrSummary.getState();
-		this.psychologicalResult = emrSummary.getPsychologicalResult();
-		this.radiologyResult = emrSummary.getRadiologyResult();
-		this.serologicalResult = emrSummary.getSerologicalResult();
-		this.bloodType = emrSummary.getBloodType();
-		this.hemoglobin = emrSummary.getHemoglobin();
-		this.bloodCount = emrSummary.getBloodCount();
+		if(emrSummary.getState() != null) this.state = emrSummary.getState();
+		if(emrSummary.getUpdatedAt() != null) this.updatedAt = emrSummary.getUpdatedAt();  
+		if(emrSummary.getPsychologicalResult() != null) this.psychologicalResult = emrSummary.getPsychologicalResult();
+		if(emrSummary.getRadiologyResult() != null) this.radiologyResult = emrSummary.getRadiologyResult();
+		if(emrSummary.getSerologicalResult() != null) this.serologicalResult = emrSummary.getSerologicalResult();
+		if(emrSummary.getBloodType() != null) this.bloodType = emrSummary.getBloodType();
+		if(emrSummary.getHemoglobin() != null) this.hemoglobin = emrSummary.getHemoglobin();
+		if(emrSummary.getBloodCount() != null) this.bloodCount = emrSummary.getBloodCount();
 	}
 
 	@Override

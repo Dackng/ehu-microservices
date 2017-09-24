@@ -1,6 +1,7 @@
 package com.unmsm.api;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,10 +44,25 @@ public class CatalogService {
 		return list;
 	}
 	
-	public Catalog getElementOfPrimaryGroupByStateIndex(PrimaryGroup primaryId, Integer stateIndex){
+	public Catalog getElementOfPrimaryGroupByItemIndex(PrimaryGroup primaryId, Integer itemIndex){
 		List<Catalog> list = catalogRepository.findElementsListByPrimaryId(primaryId.getValue(), 
 				sortByIdAsc(FieldName.SECONDARY_ID.getValue()));
-		return list != null ? list.get(stateIndex) : null; 
+		return list != null ? list.get(itemIndex) : null; 
+	}
+	
+	/**This method removing all item differents to firstIndex and secondIndex**/
+	public List<Catalog> getElementsOfPrimaryGroupByfirstIndexAndSecondIndex(PrimaryGroup primaryId, Integer firstIndex
+		, Integer secondIndex){
+		List<Catalog> list = catalogRepository.findElementsListByPrimaryId(primaryId.getValue(), 
+				sortByIdAsc(FieldName.SECONDARY_ID.getValue()));
+		Iterator<Catalog> iterator = list.iterator();
+		Catalog item = null;
+		while(iterator.hasNext()){
+			item = iterator.next();
+			if(item.getSecondaryId()!= (firstIndex + 1) && item.getSecondaryId()!=(secondIndex + 1))
+				iterator.remove();
+		}
+		return list;
 	}
 	
 	private Sort sortByIdAsc(String catalogNameField) {

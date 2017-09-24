@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.unmsm.catalog.Catalog;
-import com.unmsm.catalog.IndexOfFieldState;
+import com.unmsm.catalog.ItemIndex;
 import com.unmsm.catalog.PrimaryGroup;
 
 @RestController
@@ -34,8 +34,8 @@ public class CatalogController {
 	
 	@RequestMapping(path = "/element/first-emr-state", method = RequestMethod.GET, name = "getFirstEmrState")
 	public ResponseEntity<Catalog> getFirstEmrState(){
-		return Optional.ofNullable(catalogService.getElementOfPrimaryGroupByStateIndex(PrimaryGroup.EMR_STATE
-				, IndexOfFieldState.FIRST_STATE.getValue()))
+		return Optional.ofNullable(catalogService.getElementOfPrimaryGroupByItemIndex(PrimaryGroup.EMR_STATE
+				, ItemIndex.FIRST_ITEM.getValue()))
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
@@ -130,4 +130,56 @@ public class CatalogController {
 				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
+	
+	@RequestMapping(path = "/list/medical-test/new-patient", method = RequestMethod.GET, name = "getMedicalTestListForNewPatient")
+	public ResponseEntity<List<Catalog>> getMedicalTestListForNewPatient(){
+		return Optional.ofNullable(catalogService.getElementsListByPrimaryId(PrimaryGroup.MEDICAL_TEST))
+				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
+	
+	/**
+	 * SECOND_ITEM and THIRD_ITEM are index of Laboratory and Radiology respectively
+	 * @return
+	 */
+	@RequestMapping(path = "/list/medical-test/old-patient", method = RequestMethod.GET, name = "getMedicalTestListForOldPatient")
+	public ResponseEntity<List<Catalog>> getMedicalTestListForOldPatient(){
+		return Optional.ofNullable(catalogService.getElementsOfPrimaryGroupByfirstIndexAndSecondIndex(PrimaryGroup.MEDICAL_TEST
+				,ItemIndex.SECOND_ITEM.getValue(), ItemIndex.THIRD_ITEM.getValue()))
+				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
+	
+	@RequestMapping(path = "/element/medical-test/general-medicine", method = RequestMethod.GET, name = "getMedicalTestListForNewPatient")
+	public ResponseEntity<Catalog> findGeneralMedicineTest(){
+		return Optional.ofNullable(catalogService.getElementOfPrimaryGroupByItemIndex
+				(PrimaryGroup.MEDICAL_TEST, ItemIndex.FIRST_ITEM.getValue()))
+				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
+	
+	@RequestMapping(path = "/element/medical-test/laboratory", method = RequestMethod.GET, name = "findLaboratoryTest")
+	public ResponseEntity<Catalog> findLaboratoryTest(){
+		return Optional.ofNullable(catalogService.getElementOfPrimaryGroupByItemIndex
+				(PrimaryGroup.MEDICAL_TEST, ItemIndex.SECOND_ITEM.getValue()))
+				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
+	
+	@RequestMapping(path = "/element/medical-test/radiology", method = RequestMethod.GET, name = "findRadiologyTest")
+	public ResponseEntity<Catalog> findRadiologyTest(){
+		return Optional.ofNullable(catalogService.getElementOfPrimaryGroupByItemIndex
+				(PrimaryGroup.MEDICAL_TEST, ItemIndex.THIRD_ITEM.getValue()))
+				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
+
+	@RequestMapping(path = "/element/medical-test/psychological", method = RequestMethod.GET, name = "findPsychologicalTest")
+	public ResponseEntity<Catalog> findPsychologicalTest(){
+		return Optional.ofNullable(catalogService.getElementOfPrimaryGroupByItemIndex
+				(PrimaryGroup.MEDICAL_TEST, ItemIndex.FOURTH_ITEM.getValue()))
+				.map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
+
 }

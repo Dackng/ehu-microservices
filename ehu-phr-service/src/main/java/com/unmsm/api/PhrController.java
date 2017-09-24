@@ -47,7 +47,7 @@ public class PhrController {
 			, @RequestBody EmrSummary emrSummary)throws Exception{
 		Assert.notNull(emrSummary);
 		return Optional.ofNullable(phrService.registerEmrSummary(patientCode, emrSummary))
-                .map(result -> new ResponseEntity<Phr>(HttpStatus.NO_CONTENT))
+                .map(result -> new ResponseEntity<Phr>(result, HttpStatus.OK))
                 .orElse(new ResponseEntity<Phr>(HttpStatus.NOT_FOUND));
 	}
 	
@@ -56,7 +56,7 @@ public class PhrController {
 			, @RequestBody EmrSummary emrSummary)throws Exception{
 		Assert.notNull(emrSummary);
 		return Optional.ofNullable(phrService.updateEmrSummary(patientCode, emrSummary))
-                .map(result -> new ResponseEntity<Phr>(HttpStatus.NO_CONTENT))
+                .map(result -> new ResponseEntity<Phr>(result, HttpStatus.OK))
                 .orElse(new ResponseEntity<Phr>(HttpStatus.NOT_FOUND));
 	}
 }

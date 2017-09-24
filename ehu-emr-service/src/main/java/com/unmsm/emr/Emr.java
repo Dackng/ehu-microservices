@@ -2,16 +2,25 @@ package com.unmsm.emr;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.PreUpdate;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
+
+import com.unmsm.medicaltest.MedicalTest;
+
+
 
 @Entity
 public class Emr implements Serializable{
@@ -25,8 +34,11 @@ public class Emr implements Serializable{
 	private Date createdAt;
 	private Date updatedAt;
 	private Integer healthPlanId;
+	private Set<MedicalTest> medicalTests;
 	
-	public Emr(){}
+	public Emr(){
+		medicalTests = new HashSet<MedicalTest>();
+	}
 
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -85,10 +97,21 @@ public class Emr implements Serializable{
 	protected void onUpdate() {
 	    updatedAt = new Date();
 	}
+	@OneToMany(mappedBy = "emr", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	public Set<MedicalTest> getMedicalTests() {
+		return medicalTests;
+	}
+	public void setMedicalTests(Set<MedicalTest> medicalTests) {
+		this.medicalTests = medicalTests;
+	}
+
+	public void generateCode(){
+		code = patientCode + " - " + healthPlanId;
+	}
 	@Override
 	public String toString() {
 		return "Emr [id=" + id + ", patientCode=" + patientCode + ", employeeCode=" + employeeCode + ", code=" + code
-				+ ", stateId=" + stateId + ", createdAt=" + createdAt + ", updatedAt="
-				+ updatedAt + ", healthPlanId=" + healthPlanId + "]";
+				+ ", stateId=" + stateId + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + ", healthPlanId="
+				+ healthPlanId + ", medicalTests=" + medicalTests + "]";
 	}
 }

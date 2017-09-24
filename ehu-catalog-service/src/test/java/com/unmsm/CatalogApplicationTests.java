@@ -16,10 +16,12 @@ import org.springframework.data.domain.Sort;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.unmsm.api.CatalogService;
 import com.unmsm.catalog.Catalog;
 import com.unmsm.catalog.CatalogRepository;
 import com.unmsm.catalog.FieldName;
 import com.unmsm.catalog.FieldValue;
+import com.unmsm.catalog.ItemIndex;
 import com.unmsm.catalog.PrimaryGroup;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -32,6 +34,9 @@ public class CatalogApplicationTests {
 
 	@Autowired
 	CatalogRepository catalogRepository;
+	
+	@Autowired
+	CatalogService catalogService;
 
 	@Test
 	@Ignore
@@ -43,20 +48,33 @@ public class CatalogApplicationTests {
 	@Test
 	@Ignore
 	public void findElementsListByPrimaryIdTest() {
-		List<Catalog> lista = catalogRepository.findElementsListByPrimaryId(PrimaryGroup.EAP.getValue()
+		List<Catalog> list = catalogRepository.findElementsListByPrimaryId(PrimaryGroup.MEDICAL_TEST.getValue()
 				, new Sort(Sort.Direction.ASC, FieldName.SECONDARY_ID.getValue()));
-		if (lista.isEmpty()) {
+		if (list.isEmpty()) {
 			fail("Elements not found");
 		} else {
-			for (Catalog catalog : lista) {
+			for (Catalog catalog : list) {
 				log.info(catalog.toString());
 			}
 		}
 	}
 	
 	@Test
+	@Ignore
 	public void findCurrentHealthPlanTest() {
 		log.info(catalogRepository.findElementByPrimaryIdAndState(PrimaryGroup.HEALTH_PLAN.getValue(),
 				FieldValue.ACTIVE.getValue()).toString());
+	}
+	
+	@Test
+	@Ignore
+	public void getElementsOfPrimaryGroupByfirstIndexAndSecondIndexTest() {
+		List<Catalog> list = catalogService.getElementsOfPrimaryGroupByfirstIndexAndSecondIndex(PrimaryGroup.MEDICAL_TEST,
+				ItemIndex.SECOND_ITEM.getValue(), ItemIndex.THIRD_ITEM.getValue());
+		if (list.isEmpty()) {
+			fail("Elements not found");
+		}else{
+			for(Catalog item: list) log.info(item.toString());
+		}
 	}
 }

@@ -38,7 +38,14 @@ public class PhrService {
 		Phr phr = phrRepository.findByPatientCode(patientCode);
 		Assert.notNull(phr);
 		Assert.notNull(emrSummary);
-		phr.getEmrSummary(phr.getEmrSummaryList().indexOf(emrSummary)).setFields(emrSummary);
-		return phrRepository.save(phr);
+		for(int i = 0; i < phr.getEmrSummaryList().size(); i++){
+			if (phr.getEmrSummary(i).getHealthPlan().equals(emrSummary.getHealthPlan())){
+				phr.getEmrSummary(i).setFields(emrSummary);
+				phr = phrRepository.save(phr);
+				break;
+			}
+		}
+		return phr;
+		
 	}
 }

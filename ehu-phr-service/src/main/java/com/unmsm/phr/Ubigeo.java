@@ -5,26 +5,17 @@ import java.io.Serializable;
 public class Ubigeo implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	private String code;
 	private String departmentDescription;
 	private String provinceDescription;
 	private String districtDescription;
 	
 	public Ubigeo(){}
 	
-	public Ubigeo(String code, String departmentDescription, String provinceDescription
+	public Ubigeo(String departmentDescription, String provinceDescription
 			, String districtDescription){
-		this.code = code;
 		this.departmentDescription = departmentDescription;
 		this.provinceDescription = provinceDescription;
 		this.districtDescription = districtDescription;
-	}
-	
-	public String getCode() {
-		return code;
-	}
-	public void setCode(String code) {
-		this.code = code;
 	}
 	public String getDepartmentDescription() {
 		return departmentDescription;
@@ -47,7 +38,7 @@ public class Ubigeo implements Serializable{
 	
 	@Override
 	public String toString() {
-		return "Ubigeo [code=" + code + ", departmentDescription=" + departmentDescription + ", provinceDescription="
+		return "Ubigeo [departmentDescription=" + departmentDescription + ", provinceDescription="
 				+ provinceDescription + ", districtDescription=" + districtDescription + "]";
 	}
 }

@@ -33,7 +33,15 @@ eureka:
     hostname: ${DOMAIN_NAME}
     nonSecurePort: 80
   password:  ${USER_PASSWORD:password}
-hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 60000
+hystrix:
+  metrics:
+    enabled: true
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
 
 ---
 server:

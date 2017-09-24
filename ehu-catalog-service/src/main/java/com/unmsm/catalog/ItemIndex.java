@@ -1,12 +1,13 @@
 package com.unmsm.catalog;
 
-public enum IndexOfFieldState {
-    FIRST_STATE(0),
-    SECOND_STATE(1),
-	THIRD_STATE(2);
+public enum ItemIndex {
+    FIRST_ITEM(0),
+    SECOND_ITEM(1),
+	THIRD_ITEM(2),
+	FOURTH_ITEM(3);
 	private Integer value;
 	
-	private IndexOfFieldState(Integer value){ 
+	private ItemIndex(Integer value){ 
 		this.value = value; 
 	}
 	public Integer getValue() {

@@ -26,7 +26,7 @@ public class EmrApplication {
     @Bean(name = "normalRestTemplate")
     public RestTemplate loadBalancedRestTemplate() {
         return new RestTemplate();
-    }	
+    }
 	
 	/**
 	 * Remove when the project is finished because this method help to resolve the CORS problem
