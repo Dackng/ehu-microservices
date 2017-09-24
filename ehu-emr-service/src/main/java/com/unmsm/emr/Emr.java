@@ -18,6 +18,7 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.unmsm.medicaltest.MedicalTest;
 
 
@@ -34,6 +35,7 @@ public class Emr implements Serializable{
 	private Date createdAt;
 	private Date updatedAt;
 	private Integer healthPlanId;
+	@JsonIgnore
 	private Set<MedicalTest> medicalTests;
 	
 	public Emr(){
