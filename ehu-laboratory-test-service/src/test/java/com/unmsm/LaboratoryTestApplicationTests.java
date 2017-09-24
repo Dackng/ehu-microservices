@@ -12,7 +12,6 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.Assert;
 
-import com.unmsm.laboratory.FieldValue;
 import com.unmsm.laboratory.LaboratoryTest;
 import com.unmsm.laboratory.LaboratoryTestRepository;
 
@@ -43,24 +42,6 @@ public class LaboratoryTestApplicationTests {
 				(1, 12200221);
 		Assert.notNull(laboratoryTest);
 		log.info(laboratoryTest.toString());
-		log.info("success");
-	}
-	
-	@Test
-	public void existsByEmrHealthPlanIdAndEmrPatientCodeTest() {
-		Boolean exist = laboratoryTestRepository
-				.validateExistenceByEmrHealthPlanIdAndEmrPatientCode(1, 12200221);
-		Assert.notNull(exist);
-		log.info(exist.toString());
-		log.info("success");
-	}
-	
-	@Test
-	public void validateTestFinishedTest() {
-		Boolean validTest = laboratoryTestRepository
-				.validateTestFinished(1, 12200221, FieldValue.FINISHED.getValue());
-		Assert.notNull(validTest);
-		log.info(validTest.toString());
 		log.info("success");
 	}
 }

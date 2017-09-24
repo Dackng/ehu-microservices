@@ -100,6 +100,7 @@ public class EmrSummary implements Serializable{
 		this.bloodCount = bloodcount;
 	}
 	public void setFields(EmrSummary emrSummary){
+		if(emrSummary.getCode() != null) this.code = emrSummary.getCode();
 		if(emrSummary.getState() != null) this.state = emrSummary.getState();
 		if(emrSummary.getUpdatedAt() != null) this.updatedAt = emrSummary.getUpdatedAt();  
 		if(emrSummary.getPsychologicalResult() != null) this.psychologicalResult = emrSummary.getPsychologicalResult();
