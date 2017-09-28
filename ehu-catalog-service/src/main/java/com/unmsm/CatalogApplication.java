@@ -28,7 +28,7 @@ public class CatalogApplication {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                		.allowedOrigins("http://localhost:3000")
+                		.allowedOrigins("http://localhost:3000", "https://ehu-unmsm.firebaseapp.com")
                 		.allowedMethods("GET", "POST", "PUT", "DELETE");
             }
         };
